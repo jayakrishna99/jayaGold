@@ -1,7 +1,6 @@
 import { CONFIG, waLink } from "@/lib/config";
-import WhatsAppForm from "@/components/WhatsAppForm";
+import HeroCarousel from "@/components/HeroCarousel";
 import SimpleWaForm from "@/components/SimpleWaForm";
-import QuoteModal from "@/components/QuoteModal";
 import RateBoard from "@/components/RateBoard";
 import Calculator from "@/components/Calculator";
 import Faq from "@/components/Faq";
@@ -82,42 +81,8 @@ const FAQS = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="hero" id="top">
-        <div className="container">
-          <div>
-            <span className="pill">Strength You Can Trust!</span>
-            <h1 className="mt-16">
-              Sell Your Old Gold for <span>Instant Cash</span>
-            </h1>
-            <p>
-              Jaya Gold Buyers pays you the best live market rate for your old
-              gold and silver jewellery — with transparent weighing, no hidden
-              deductions, and cash in hand the same day.
-            </p>
-            <div className="hero-btns">
-              <QuoteModal label="Get a Free Quote" />
-              <a
-                className="btn btn-wa btn-lg"
-                href={waLink("Hi Jaya Gold Buyers, I want to sell my gold. Please share today's best rate.")}
-                target="_blank"
-                rel="noopener"
-              >
-                <WaIcon /> WhatsApp Us
-              </a>
-            </div>
-            <div className="hero-badges">
-              <div className="hero-badge"><b>100%</b><span>Transparent Weighing</span></div>
-              <div className="hero-badge"><b>10&nbsp;min</b><span>Instant Cash Payout</span></div>
-              <div className="hero-badge"><b>50k+</b><span>Happy Customers</span></div>
-            </div>
-          </div>
-          <WhatsAppForm
-            title="Get Today's Best Rate"
-            subtitle="Fill in the details — we'll send your quote on WhatsApp instantly."
-          />
-        </div>
-      </section>
+      {/* Hero carousel — PDF pages 1, 4, 5 */}
+      <HeroCarousel />
 
       {/* Trust strip */}
       <div className="trust-strip">
@@ -128,6 +93,36 @@ export default function Home() {
           <div className="trust-item"><span className="ic">🚗</span> Free Doorstep Pickup</div>
         </div>
       </div>
+
+      {/* FAQs — model left, questions right (PDF p.2) */}
+      <section className="section has-orbs" id="faqs">
+        <span className="plx-orb orb-a" data-plx="0.22" aria-hidden="true" />
+        <span className="plx-orb orb-b" data-plx="-0.14" aria-hidden="true" />
+        <div className="container faq-grid">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="faq-model"
+            src="/img/faq-model.jpg"
+            alt="Jaya Gold Buyers — here to answer your gold questions"
+            data-plx="0.08"
+          />
+          <div className="faq-col">
+            <span className="eyebrow">Common Questions</span>
+            <h2>Frequently Asked Questions</h2>
+            <Faq items={FAQS} />
+            <p className="faq-more">
+              Still have a question?{" "}
+              <a
+                href={waLink("Hi Jaya Gold Buyers, I have a question.")}
+                target="_blank"
+                rel="noopener"
+              >
+                Ask us on WhatsApp →
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* Sell gold */}
       <section className="section" id="sell-gold">
@@ -172,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* Live rate + calculator */}
-      <section className="section" id="live-rate">
+      <section className="section bg-coral" id="live-rate">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Know Your Value</span>
@@ -183,8 +178,12 @@ export default function Home() {
             </p>
           </div>
           <div className="rate-wrap">
-            <RateBoard detailed />
-            <Calculator />
+            <div data-plx="0.06">
+              <RateBoard detailed />
+            </div>
+            <div data-plx="-0.05">
+              <Calculator />
+            </div>
           </div>
         </div>
       </section>
@@ -242,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* Why Jaya */}
-      <section className="section" id="why">
+      <section className="section bg-dark" id="why">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Why Jaya Gold Buyers</span>
@@ -331,7 +330,7 @@ export default function Home() {
       </section>
 
       {/* Branches */}
-      <section className="section bg-grey" id="branches">
+      <section className="section bg-coral" id="branches">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Reach Us</span>
@@ -399,28 +398,6 @@ export default function Home() {
               ]}
             />
           </div>
-        </div>
-      </section>
-
-      {/* FAQs */}
-      <section className="section" id="faqs">
-        <div className="container" style={{ maxWidth: 840 }}>
-          <div className="section-head">
-            <span className="eyebrow">Common Questions</span>
-            <h2>Frequently Asked Questions</h2>
-          </div>
-          <Faq items={FAQS} />
-          <p style={{ marginTop: 24, textAlign: "center", color: "var(--grey)" }}>
-            Still have a question?{" "}
-            <a
-              href={waLink("Hi Jaya Gold Buyers, I have a question.")}
-              target="_blank"
-              rel="noopener"
-              style={{ color: "var(--red)", fontWeight: 600 }}
-            >
-              Ask us on WhatsApp →
-            </a>
-          </p>
         </div>
       </section>
 

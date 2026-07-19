@@ -9,8 +9,10 @@ export default function Footer() {
         <div className="cols">
           <div>
             <div className="logo-f">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/img/logo-horizontal.jpeg" alt="Jaya Gold Buyers" />
+              <span className="brand" aria-label="Jaya Gold Buyers">
+                <span className="brand-word">JAYA</span>
+                <span className="brand-sub">Gold Buyers</span>
+              </span>
             </div>
             <p>
               Jaya Gold Buyers — the trusted name for selling old gold &amp;

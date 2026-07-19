@@ -1,31 +1,31 @@
+"use client";
+import { useEffect, useState } from "react";
 import { CONFIG } from "@/lib/config";
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <>
-      <div className="topbar">
-        <div className="container">
-          <span>📍 Bangalore · Chennai · Kerala · Andhra · Telangana</span>
-          <div className="tb-links">
-            <a href={`tel:${CONFIG.phone}`}>📞 {CONFIG.phoneDisplay}</a>
-            <a href="#live-rate">📈 Live Gold Rate</a>
-          </div>
+    <header className={`header${scrolled ? " scrolled" : ""}`}>
+      <div className="container nav">
+        <a className="brand" href="/#top" aria-label="Jaya Gold Buyers">
+          <span className="brand-word">JAYA</span>
+          <span className="brand-sub">Gold Buyers</span>
+        </a>
+        <div className="nav-cta">
+          <span className="nav-state">Karnataka</span>
+          <a className="btn btn-primary" href={`tel:${CONFIG.phone}`}>
+            Call Now
+          </a>
         </div>
       </div>
-
-      <header className="header">
-        <div className="container nav">
-          <a className="brand" href="#top">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/img/logo-horizontal.jpeg" alt="Jaya Gold Buyers" />
-          </a>
-          <div className="nav-cta">
-            <a className="btn btn-primary" href={`tel:${CONFIG.phone}`}>
-              📞 Call Now
-            </a>
-          </div>
-        </div>
-      </header>
-    </>
+    </header>
   );
 }

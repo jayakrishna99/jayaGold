@@ -3,6 +3,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyMenu from "@/components/StickyMenu";
+import Loader from "@/components/Loader";
+import LeadPopup from "@/components/LeadPopup";
+import ScrollReveal from "@/components/ScrollReveal";
+import Parallax from "@/components/Parallax";
 
 export const metadata: Metadata = {
   title: "Jaya Gold Buyers | Sell Gold for Cash in Bangalore | Best Gold Buyers",
@@ -25,13 +29,20 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Aktiv Grotesk via Adobe Fonts: paste your kit link here, e.g.
+            <link rel="stylesheet" href="https://use.typekit.net/XXXXXXX.css" />
+            The CSS already uses font-family "aktiv-grotesk". */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
       <body>
+        <Loader />
+        <LeadPopup />
+        <ScrollReveal />
+        <Parallax />
         <Header />
         <StickyMenu />
         {children}

@@ -1,12 +1,31 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CONFIG, waLink } from "@/lib/config";
 import WaIcon from "@/components/WaIcon";
 
+const ACTIONS = [
+  { icon: "📍", label: "Find Nearest Branch", href: "#branches" },
+  { icon: "📈", label: "Live Gold Rate", href: "#live-rate" },
+  { icon: "🪙", label: "Sell Gold & Silver", href: "#sell-gold" },
+  { icon: "🔓", label: "Release Gold & Silver", href: "#release-gold" },
+];
+
 export default function StickyMenu() {
+  const [show, setShow] = useState(false); // appears after scrolling past the hero
   const [open, setOpen] = useState(false); // mobile: expand action buttons
   const [waOpen, setWaOpen] = useState(false); // whatsapp mini form
   const [msg, setMsg] = useState("");
+
+  useEffect(() => {
+    const onScroll = () => {
+      const hero = document.querySelector<HTMLElement>(".hero");
+      const limit = hero ? hero.offsetHeight * 0.72 : window.innerHeight * 0.6;
+      setShow(window.scrollY > limit);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const close = () => setOpen(false);
   const sendWa = (e: React.FormEvent) => {
@@ -21,43 +40,29 @@ export default function StickyMenu() {
   };
 
   return (
-    <div className="sticky-menu">
+    <div className={`sticky-menu${show ? " show" : ""}`}>
       <div className="container">
         <div className="sm-card">
           <div className={`sm-actions${open ? " open" : ""}`}>
-            <a className="sm-tile sm-tile-red" href="#branches" onClick={close}>
-              <span className="sm-ic">📍</span>
-              <span>
-                Find Nearest
-                <br />
-                Branch
-              </span>
-            </a>
-            <a className="sm-tile sm-tile-gold" href="#live-rate" onClick={close}>
-              <span className="sm-ic">₹</span>
-              <span>
-                Live Gold
-                <br />
-                Rate
-              </span>
-            </a>
-            <a className="sm-btn" href="#sell-gold" onClick={close}>
-              Sell Gold
-            </a>
-            <a className="sm-btn sm-btn-light" href="#release-gold" onClick={close}>
-              Release Gold
-            </a>
+            {ACTIONS.map((a) => (
+              <a className="sm-btn" href={a.href} key={a.href} onClick={close}>
+                <span className="sm-btn-ic" aria-hidden="true">{a.icon}</span>
+                <span>{a.label}</span>
+              </a>
+            ))}
           </div>
 
           <div className="sm-contact">
+            <span className="sm-dots">⋮</span>
             <button
               className="sm-wa"
               aria-label="Send us a WhatsApp message"
               onClick={() => setWaOpen((o) => !o)}
             >
-              <WaIcon size={28} />
+              <WaIcon size={26} />
             </button>
             <a className="sm-phone" href={`tel:${CONFIG.phone}`}>
+              <span className="sm-phone-ic" aria-hidden="true">📞</span>
               {CONFIG.phoneDisplay}
             </a>
             <button
