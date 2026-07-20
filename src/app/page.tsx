@@ -1,11 +1,11 @@
-import { CONFIG, waLink } from "@/lib/config";
+import { waLink } from "@/lib/config";
 import HeroCarousel from "@/components/HeroCarousel";
+import StepsAccordion from "@/components/StepsAccordion";
 import SimpleWaForm from "@/components/SimpleWaForm";
 import RateBoard from "@/components/RateBoard";
 import Calculator from "@/components/Calculator";
 import Faq from "@/components/Faq";
 import { CtaBand } from "@/components/Shared";
-import WaIcon from "@/components/WaIcon";
 
 const SERVICES = [
   ["💍", "Old Gold Jewellery", "Rings, chains, bangles, necklaces — any condition, broken or worn. We pay by live 22K/24K rate."],
@@ -14,13 +14,6 @@ const SERVICES = [
   ["🏦", "Release Pledged Gold", "Locked your gold in a bank or pawnshop? We settle your loan and buy your released gold."],
   ["💎", "Diamond & Stone Jewellery", "We fairly value the gold and appraise diamonds & precious stones separately."],
   ["🚗", "Doorstep Service", "Prefer not to travel? Book a free home pickup — our expert evaluates gold at your door."],
-];
-
-const STEPS = [
-  ["Get in Touch", "Call, WhatsApp or fill the form. Visit a branch or book a free pickup."],
-  ["Free Testing", "Your gold is weighed and karat-tested live in front of you with certified machines."],
-  ["Get the Best Quote", "We calculate value at today's live rate — no hidden deductions, full transparency."],
-  ["Instant Cash", "Accept the offer and receive cash or bank transfer within minutes."],
 ];
 
 const RELEASE_STEPS = [
@@ -58,15 +51,6 @@ const REFER_STEPS = [
   ["💵", "3. You Earn", "Once the deal is complete, your cash reward is credited to you. Simple as that."],
 ];
 
-const BRANCHES = [
-  ["Bangalore – MG Road", "#12, MG Road, Bengaluru, Karnataka 560001", "Bangalore"],
-  ["Bangalore – Jayanagar", "4th Block, Jayanagar, Bengaluru 560011", "Bangalore Jayanagar"],
-  ["Chennai – T. Nagar", "Ranganathan St, T. Nagar, Chennai 600017", "Chennai"],
-  ["Kochi – MG Road", "MG Road, Ernakulam, Kochi 682035", "Kochi"],
-  ["Hyderabad – Ameerpet", "Ameerpet Main Rd, Hyderabad 500016", "Hyderabad"],
-  ["Vijayawada – Governorpet", "Eluru Rd, Governorpet, Vijayawada 520002", "Vijayawada"],
-];
-
 const FAQS = [
   { q: "How is the price of my gold decided?", a: "Your payout equals the weight of your gold × its tested purity × today's live rate. We weigh and karat-test everything live in front of you with certified equipment — no hidden deductions." },
   { q: "What documents do I need to sell gold?", a: "A valid government-issued photo ID (Aadhaar, PAN, Passport or Driving Licence) is required as per regulations. For pledged gold, also bring the pledge receipt and loan documents." },
@@ -87,24 +71,82 @@ export default function Home() {
       {/* Trust strip */}
       <div className="trust-strip">
         <div className="container">
-          <div className="trust-item"><span className="ic">💰</span> Highest Payout Guaranteed</div>
-          <div className="trust-item"><span className="ic">⚖️</span> Certified Karat Testing</div>
-          <div className="trust-item"><span className="ic">🔒</span> 100% Safe &amp; Confidential</div>
-          <div className="trust-item"><span className="ic">🚗</span> Free Doorstep Pickup</div>
+          <div className="trust-item">
+            <span className="ic">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="2.5" y="6" width="19" height="12" rx="2" />
+                <circle cx="12" cy="12" r="2.7" />
+                <path d="M6 9.5h.01M18 14.5h.01" />
+              </svg>
+            </span>{" "}
+            Highest Payout Guaranteed
+          </div>
+          <div className="trust-item">
+            <span className="ic">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 4.5v14.5" />
+                <path d="M8.5 19h7" />
+                <path d="M5 7h14" />
+                <path d="M6.5 7 4.1 12a2.55 2.55 0 0 0 4.8 0Z" />
+                <path d="M17.5 7l-2.4 5a2.55 2.55 0 0 0 4.8 0Z" />
+              </svg>
+            </span>{" "}
+            Certified Karat Testing
+          </div>
+          <div className="trust-item">
+            <span className="ic">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12 3l7 2.8V11c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8Z" />
+                <path d="M9 11.6l2.1 2.1L15.2 9.6" />
+              </svg>
+            </span>{" "}
+            100% Safe &amp; Confidential
+          </div>
+          <div className="trust-item">
+            <span className="ic">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M2.5 8.5h11v7h-11z" />
+                <path d="M13.5 11h4.2l3 3v1.5h-2.4" />
+                <circle cx="7" cy="17" r="1.8" />
+                <circle cx="16.6" cy="17" r="1.8" />
+                <path d="M8.8 17h6" />
+              </svg>
+            </span>{" "}
+            Free Doorstep Pickup
+          </div>
         </div>
       </div>
 
-      {/* FAQs — model left, questions right (PDF p.2) */}
-      <section className="section has-orbs" id="faqs">
+      {/* Seven easy steps — sticky heading left, numbered accordion right */}
+      <section className="section bg-white" id="how-it-works">
+        <div className="container steps-grid steps-grid-3">
+          <div className="steps-head">
+            <h2>
+              <span className="accent">Sell Gold in Bengaluru with</span>
+              <br />
+              Five Easy Steps
+            </h2>
+          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="steps-model"
+            src="/img/steps-model.jpg"
+            alt="Sell your gold in seven easy steps at Jaya Gold Buyers"
+          />
+          <StepsAccordion />
+        </div>
+      </section>
+
+      {/* FAQs — left-aligned heading, list below (PDF p.2 bottom) */}
+      <section className="section has-orbs bg-coral" id="faqs">
         <span className="plx-orb orb-a" data-plx="0.22" aria-hidden="true" />
         <span className="plx-orb orb-b" data-plx="-0.14" aria-hidden="true" />
         <div className="container faq-grid">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            className="faq-model"
-            src="/img/faq-model.jpg"
+            className="faq-img"
+            src="/img/faq-left.jpg"
             alt="Jaya Gold Buyers — here to answer your gold questions"
-            data-plx="0.08"
           />
           <div className="faq-col">
             <span className="eyebrow">Common Questions</span>
@@ -140,25 +182,6 @@ export default function Home() {
               <div className="card" key={h}>
                 <div className="ic">{ic}</div>
                 <h3>{h}</h3>
-                <p>{p}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="section bg-grey">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Simple Process</span>
-            <h2>Sell Gold in 4 Easy Steps</h2>
-          </div>
-          <div className="grid grid-4">
-            {STEPS.map(([h, p], i) => (
-              <div className="step" key={h}>
-                <div className="num">{i + 1}</div>
-                <h4>{h}</h4>
                 <p>{p}</p>
               </div>
             ))}
@@ -323,78 +346,6 @@ export default function Home() {
                 { name: "name", label: "Your Name", required: true },
                 { name: "phone", label: "Your Phone", type: "tel", required: true },
                 { name: "friend", label: "Friend's Name & Number", placeholder: "e.g. Priya – 98xxxxxxx0" },
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Branches */}
-      <section className="section bg-coral" id="branches">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Reach Us</span>
-            <h2>Find a Branch Near You</h2>
-            <p className="lead">
-              Walk in to any of our branches across South India — or book a
-              free doorstep pickup.
-            </p>
-          </div>
-          <div className="grid grid-3">
-            {BRANCHES.map(([name, addr, q]) => (
-              <div className="branch" key={name}>
-                <h4>{name}</h4>
-                <p>📍 {addr}</p>
-                <p>🕘 {CONFIG.hours}</p>
-                <p>
-                  📞 <a href={`tel:${CONFIG.phone}`}>{CONFIG.phoneDisplay}</a>
-                </p>
-                <div className="b-actions">
-                  <a
-                    className="btn btn-primary"
-                    target="_blank"
-                    rel="noopener"
-                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Jaya Gold Buyers " + q)}`}
-                  >
-                    🗺️ Directions
-                  </a>
-                  <a
-                    className="btn btn-wa"
-                    target="_blank"
-                    rel="noopener"
-                    href={waLink(`Hi Jaya Gold Buyers, I'd like to visit the ${name} branch.`)}
-                  >
-                    <WaIcon /> Enquire
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="rate-wrap" style={{ marginTop: 44 }}>
-            <div className="prose">
-              <span className="eyebrow">Can&apos;t Come to Us?</span>
-              <h2>Book a Free Doorstep Pickup</h2>
-              <p>
-                Prefer to stay home? Our trained executive comes to you with
-                certified testing equipment, values your gold live at your
-                doorstep, and pays you on the spot. Available across all our
-                service cities.
-              </p>
-              <ul>
-                <li>✅ No travel, no risk of carrying gold</li>
-                <li>✅ Live weighing &amp; karat testing at your door</li>
-                <li>✅ Instant cash or bank transfer</li>
-              </ul>
-            </div>
-            <SimpleWaForm
-              title="Book a Pickup"
-              subtitle="Tell us where and when — we'll confirm on WhatsApp."
-              intro="Hello Jaya Gold Buyers! I'd like to book a doorstep pickup."
-              submitLabel="Request Pickup →"
-              fields={[
-                { name: "name", label: "Name", required: true },
-                { name: "phone", label: "Phone", type: "tel", required: true },
-                { name: "city", label: "City", type: "select", options: CONFIG.cities },
               ]}
             />
           </div>

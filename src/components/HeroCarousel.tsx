@@ -1,7 +1,25 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
 
-const SLIDES = [
+type Slide = {
+  img: string;
+  alt: string;
+  theme: "coral" | "dark";
+  full?: boolean; // full-bleed banner with its own artwork/text
+  overlay?: string[]; // text drawn over a full banner
+  title?: string[];
+  sub?: string[];
+  cta?: { label: string; href: string } | null;
+};
+
+const SLIDES: Slide[] = [
+  {
+    img: "/img/bannerimage.png",
+    alt: "Sell your gold for instant cash at Jaya Gold Buyers, Bangalore",
+    theme: "coral",
+    full: true,
+    overlay: ["Looking for Gold Buyers in", "Bangalore?"],
+  },
   {
     img: "/img/hero-model.jpg",
     alt: "Sell your gold and silver jewellery for instant cash at Jaya Gold Buyers",
@@ -10,23 +28,7 @@ const SLIDES = [
     sub: ["Pledge · Release · Buy · Sell", "Fair Value. Transparent Service."],
     cta: null,
   },
-  {
-    img: "/img/hero-slide2.jpg",
-    alt: "Check the live gold and silver rate at Jaya Gold Buyers",
-    theme: "coral",
-    title: ["Check Live", "Gold & Silver Rate"],
-    sub: ["Guaranteed rate across", "all our Bengaluru branches."],
-    cta: { label: "Check Gold Rate", href: "#live-rate" },
-  },
-  {
-    img: "/img/hero-slide3.jpg",
-    alt: "Why choose Jaya Gold Buyers",
-    theme: "dark",
-    title: ["Why", "Jaya Gold Buyers?"],
-    sub: ["Fair value, certified testing and", "instant payment — every time."],
-    cta: { label: "Know More", href: "#why" },
-  },
-] as const;
+];
 
 export default function HeroCarousel() {
   const [active, setActive] = useState(0);
@@ -53,35 +55,54 @@ export default function HeroCarousel() {
       <div className="container hero-carousel" data-plx-scroll="0.28">
         {SLIDES.map((s, i) => (
           <div
-            className={`hero-slide${i === active ? " active" : ""}`}
+            className={`hero-slide${i === active ? " active" : ""}${s.full ? " full" : ""}`}
             key={s.img}
             aria-hidden={i !== active}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="hero-model" src={s.img} alt={s.alt} />
-            <div className="hero-copy">
-              <h1>
-                {s.title.map((line, j) => (
-                  <span key={j}>
-                    {line}
-                    {j < s.title.length - 1 && <br />}
-                  </span>
-                ))}
-              </h1>
-              <p className="hero-sub">
-                {s.sub.map((line, j) => (
-                  <span key={j}>
-                    {line}
-                    {j < s.sub.length - 1 && <br />}
-                  </span>
-                ))}
-              </p>
-              {s.cta && (
-                <a className="btn btn-outline hero-cta" href={s.cta.href}>
-                  {s.cta.label}
-                </a>
-              )}
-            </div>
+            {s.full ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="hero-banner" src={s.img} alt={s.alt} />
+                {s.overlay && (
+                  <div className="hero-banner-copy">
+                    {s.overlay.map((line, j) => (
+                      <span key={j}>
+                        {j === s.overlay!.length - 1 ? <b>{line}</b> : line}
+                        {j < s.overlay!.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="hero-model" src={s.img} alt={s.alt} />
+                <div className="hero-copy">
+                  <h1>
+                    {s.title?.map((line, j) => (
+                      <span key={j}>
+                        {line}
+                        {j < (s.title?.length ?? 0) - 1 && <br />}
+                      </span>
+                    ))}
+                  </h1>
+                  <p className="hero-sub">
+                    {s.sub?.map((line, j) => (
+                      <span key={j}>
+                        {line}
+                        {j < (s.sub?.length ?? 0) - 1 && <br />}
+                      </span>
+                    ))}
+                  </p>
+                  {s.cta && (
+                    <a className="btn btn-outline hero-cta" href={s.cta.href}>
+                      {s.cta.label}
+                    </a>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         ))}
         <div className="hero-dots">
