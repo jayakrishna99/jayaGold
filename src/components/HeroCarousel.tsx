@@ -14,7 +14,7 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    img: "/img/bannerimage.png",
+    img: "/img/banner-hero.jpg",
     alt: "Sell your gold for instant cash at Jaya Gold Buyers, Bangalore",
     theme: "coral",
     full: true,
@@ -61,6 +61,7 @@ export default function HeroCarousel() {
           >
             {s.full ? (
               <>
+                <span className="hero-banner-bg" aria-hidden="true" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="hero-banner" src={s.img} alt={s.alt} />
                 {s.overlay && (

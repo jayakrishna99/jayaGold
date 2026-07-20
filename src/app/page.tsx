@@ -7,13 +7,85 @@ import Calculator from "@/components/Calculator";
 import Faq from "@/components/Faq";
 import { CtaBand } from "@/components/Shared";
 
+const svcIconProps = {
+  viewBox: "0 0 24 24",
+  width: 26,
+  height: 26,
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.9,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const;
+
 const SERVICES = [
-  ["💍", "Old Gold Jewellery", "Rings, chains, bangles, necklaces — any condition, broken or worn. We pay by live 22K/24K rate."],
-  ["🪙", "Gold Coins & Bars", "Bring your coins, biscuits and bullion. Instant valuation at pure 24K market price."],
-  ["🥈", "Silver Articles", "Silver jewellery, coins and utensils bought at the current daily silver rate."],
-  ["🏦", "Release Pledged Gold", "Locked your gold in a bank or pawnshop? We settle your loan and buy your released gold."],
-  ["💎", "Diamond & Stone Jewellery", "We fairly value the gold and appraise diamonds & precious stones separately."],
-  ["🚗", "Doorstep Service", "Prefer not to travel? Book a free home pickup — our expert evaluates gold at your door."],
+  {
+    icon: (
+      <svg {...svcIconProps} aria-hidden="true">
+        <circle cx="12" cy="15" r="5.5" />
+        <path d="M9.4 6.6 12 3.4l2.6 3.2" />
+        <path d="M9.4 6.6h5.2L12 9.8z" />
+      </svg>
+    ),
+    title: "Old Gold Jewellery",
+    text: "Rings, chains, bangles, necklaces — any condition, broken or worn. We pay by live 22K/24K rate.",
+  },
+  {
+    icon: (
+      <svg {...svcIconProps} aria-hidden="true">
+        <circle cx="12" cy="7.3" r="3.4" />
+        <path d="M5.2 13.5h5.6l1.3 5H3.9z" />
+        <path d="M13.2 13.5h5.6l1.3 5h-8.2z" />
+      </svg>
+    ),
+    title: "Gold Coins & Bars",
+    text: "Bring your coins, biscuits and bullion. Instant valuation at pure 24K market price.",
+  },
+  {
+    icon: (
+      <svg {...svcIconProps} aria-hidden="true">
+        <path d="M11 4l1.6 4.6 4.6 1.6-4.6 1.6L11 16.4l-1.6-4.6L4.8 10.2l4.6-1.6z" />
+        <path d="M18.2 15.4l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" />
+      </svg>
+    ),
+    title: "Silver Articles",
+    text: "Silver jewellery, coins and utensils bought at the current daily silver rate.",
+  },
+  {
+    icon: (
+      <svg {...svcIconProps} aria-hidden="true">
+        <rect x="4.5" y="11" width="15" height="9" rx="2" />
+        <path d="M8 11V7.5A4 4 0 0 1 15.9 6.6" />
+        <path d="M12 14.5v2" />
+      </svg>
+    ),
+    title: "Release Pledged Gold",
+    text: "Locked your gold in a bank or pawnshop? We settle your loan and buy your released gold.",
+  },
+  {
+    icon: (
+      <svg {...svcIconProps} aria-hidden="true">
+        <path d="M7.5 4.5h9L21 9.5 12 20 3 9.5z" />
+        <path d="M3 9.5h18" />
+        <path d="M12 20 8.5 9.5 12 4.5l3.5 5z" />
+      </svg>
+    ),
+    title: "Diamond & Stone Jewellery",
+    text: "We fairly value the gold and appraise diamonds & precious stones separately.",
+  },
+  {
+    icon: (
+      <svg {...svcIconProps} aria-hidden="true">
+        <path d="M2.5 8.5h11v7h-11z" />
+        <path d="M13.5 11h4.2l3 3v1.5h-2.4" />
+        <circle cx="7" cy="17" r="1.8" />
+        <circle cx="16.6" cy="17" r="1.8" />
+        <path d="M8.8 17h6" />
+      </svg>
+    ),
+    title: "Doorstep Service",
+    text: "Prefer not to travel? Book a free home pickup — our expert evaluates gold at your door.",
+  },
 ];
 
 const RELEASE_STEPS = [
@@ -145,7 +217,7 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="faq-img"
-            src="/img/faq-left.jpg"
+            src="/img/faq-left.png"
             alt="Jaya Gold Buyers — here to answer your gold questions"
           />
           <div className="faq-col">
@@ -178,11 +250,11 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-3">
-            {SERVICES.map(([ic, h, p]) => (
-              <div className="card" key={h}>
-                <div className="ic">{ic}</div>
-                <h3>{h}</h3>
-                <p>{p}</p>
+            {SERVICES.map((s) => (
+              <div className="card" key={s.title}>
+                <div className="ic">{s.icon}</div>
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
               </div>
             ))}
           </div>
