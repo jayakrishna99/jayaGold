@@ -6,27 +6,41 @@ type Slide = {
   alt: string;
   theme: "coral" | "dark";
   full?: boolean; // full-bleed banner with its own artwork/text
-  overlay?: string[]; // text drawn over a full banner
-  title?: string[];
-  sub?: string[];
-  cta?: { label: string; href: string } | null;
+  headline: string[]; // bold headline lines
+  sub?: string; // supporting line under the headline
 };
 
 const SLIDES: Slide[] = [
   {
-    img: "/img/banner-hero.jpg",
-    alt: "Sell your gold for instant cash at Jaya Gold Buyers, Bangalore",
+    img: "/img/banner1.png",
+    alt: "Sell your gold and silver jewellery for instant cash at Jaya Gold Buyers, Bengaluru",
     theme: "coral",
     full: true,
-    overlay: ["Looking for Gold Buyers in", "Bangalore?"],
+    headline: ["Bengaluru's Trusted Gold & Silver Destination!"],
+    sub: "Release, Buy & sell. Fair Value. Transparent Service.",
   },
   {
-    img: "/img/hero-model.jpg",
-    alt: "Sell your gold and silver jewellery for instant cash at Jaya Gold Buyers",
+    img: "/img/banner2.png",
+    alt: "Looking for gold buyers in Bengaluru? Jaya Gold Buyers offers fair valuation",
     theme: "coral",
-    title: ["Bengaluru's", "Trusted Gold & Silver", "Destination!"],
-    sub: ["Pledge · Release · Buy · Sell", "Fair Value. Transparent Service."],
-    cta: null,
+    full: true,
+    headline: ["Looking for Gold Buyers in Bengaluru?"],
+  },
+  {
+    img: "/img/banner3.png",
+    alt: "Your gold deserves more than just a price at Jaya Gold Buyers",
+    theme: "coral",
+    full: true,
+    headline: ["Your Gold Deserves More Than Just a Price."],
+    sub: "Release, Buy & Sell with Fair Valuation & Trusted Service.",
+  },
+  {
+    img: "/img/banner4.png",
+    alt: "Fair value and trusted service every time at Jaya Gold Buyers",
+    theme: "coral",
+    full: true,
+    headline: ["Fair Value. Trusted Service. Every Time."],
+    sub: "Release, Buy & Sell Gold & Silver with Confidence.",
   },
 ];
 
@@ -59,51 +73,20 @@ export default function HeroCarousel() {
             key={s.img}
             aria-hidden={i !== active}
           >
-            {s.full ? (
-              <>
-                <span className="hero-banner-bg" aria-hidden="true" />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="hero-banner" src={s.img} alt={s.alt} />
-                {s.overlay && (
-                  <div className="hero-banner-copy">
-                    {s.overlay.map((line, j) => (
-                      <span key={j}>
-                        {j === s.overlay!.length - 1 ? <b>{line}</b> : line}
-                        {j < s.overlay!.length - 1 && <br />}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
-              <>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="hero-model" src={s.img} alt={s.alt} />
-                <div className="hero-copy">
-                  <h1>
-                    {s.title?.map((line, j) => (
-                      <span key={j}>
-                        {line}
-                        {j < (s.title?.length ?? 0) - 1 && <br />}
-                      </span>
-                    ))}
-                  </h1>
-                  <p className="hero-sub">
-                    {s.sub?.map((line, j) => (
-                      <span key={j}>
-                        {line}
-                        {j < (s.sub?.length ?? 0) - 1 && <br />}
-                      </span>
-                    ))}
-                  </p>
-                  {s.cta && (
-                    <a className="btn btn-outline hero-cta" href={s.cta.href}>
-                      {s.cta.label}
-                    </a>
-                  )}
-                </div>
-              </>
-            )}
+            <span className="hero-banner-bg" aria-hidden="true" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="hero-banner" src={s.img} alt={s.alt} />
+            <div className="hero-banner-copy">
+              <h2>
+                {s.headline.map((line, j) => (
+                  <span key={j}>
+                    <b>{line}</b>
+                    {j < s.headline.length - 1 && <br />}
+                  </span>
+                ))}
+              </h2>
+              {s.sub && <p className="hero-banner-sub">{s.sub}</p>}
+            </div>
           </div>
         ))}
         <div className="hero-dots">

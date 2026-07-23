@@ -15,14 +15,14 @@ const GROUPS: { kicker: string; steps: Step[] }[] = [
     kicker: "At Home",
     steps: [
       {
-        title: "Find a Branch",
-        big: "6 Branches & Growing",
-        body: "Across Bengaluru and South India — walk in to the nearest branch, or book a free doorstep pickup.",
-        cta: { label: "📞 Call to Locate a Branch", href: `tel:${CONFIG.phone}` },
+        title: "Find the Branch",
+        big: "Opposite Joy Alukkas, Jayanagar",
+        body: `${CONFIG.address}. Walk in any time, or call ahead to confirm directions.`,
+        cta: { label: "📞 Call Now", href: `tel:${CONFIG.phone}` },
       },
       {
         title: "Carry ID Proof",
-        body: "Any government photo ID works — Aadhaar, PAN, Passport or Driving Licence. A quick, confidential KYC as per regulations; your details stay strictly private.",
+        body: "A Passport or Aadhaar Card as photo ID proof, plus a local address proof.",
       },
     ],
   },
@@ -31,18 +31,21 @@ const GROUPS: { kicker: string; steps: Step[] }[] = [
     steps: [
       {
         title: "Check Gold Purity",
-        body: "Your gold is weighed and karat-tested live in front of you on certified spectrometer machines — no drilling, no damage.",
+        body: "Tamper-proof testing for an accurate valuation — checked right in front of you.",
       },
       {
         title: "Check Gold Rate",
-        big: "Same Rate. Every Branch.",
-        body: "Our live gold rate is displayed openly and applied directly to your tested purity — the rate you see is the rate you get.",
-        cta: { label: "Check Live Rate", href: "#live-rate" },
-        dark: true,
+        big: "Live, Transparent Rate",
+        body: "Based on your gold's tested purity, we give you a quotation at our transparent, live gold rate.",
+        cta: { label: "Check Live Gold Rate Now", href: "#live-rate" },
+      },
+      {
+        title: "KYC Verification",
+        body: "A mandatory KYC check — photo ID and address proof (your Aadhaar Card covers both) — plus a verification phone call to your family, our added fraud and safety measure.",
       },
       {
         title: "Instant Payment",
-        body: "Choose instant cash or immediate bank transfer — paid the moment you accept our offer.",
+        body: "For your security, we transfer the money to your bank account — you can confirm the transfer before leaving our branch. Your money is transferred instantly.",
       },
     ],
   },

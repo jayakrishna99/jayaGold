@@ -95,20 +95,79 @@ const RELEASE_STEPS = [
   ["You Get the Balance", "We buy the released gold and pay you the difference instantly in cash or bank transfer."],
 ];
 
-const WHY = [
-  ["📈", "Best Market Price", "We consistently pay the highest rate in the city — transparent, live and verifiable."],
-  ["👁️", "Full Transparency", "Live weighing and karat testing in front of you. No cutting, no hidden charges."],
-  ["⚡", "Instant Payment", "Cash or instant bank transfer the moment you accept — no waiting periods."],
-  ["🛡️", "Fully Secure", "CCTV-monitored branches, trained staff and complete confidentiality of your visit."],
-  ["🏆", "Trusted by Thousands", "50,000+ happy customers across South India rate us their most trusted gold buyer."],
-  ["🤝", "No Obligation", "Get a free valuation with zero pressure. Sell only if you're 100% satisfied."],
-];
+const whyIconProps = {
+  viewBox: "0 0 24 24",
+  width: 20,
+  height: 20,
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+} as const;
 
-const STATS = [
-  ["50k+", "Happy Customers"],
-  ["6", "Branches & Growing"],
-  ["₹500Cr+", "Gold Transacted"],
-  ["4.9★", "Average Rating"],
+const WHY = [
+  {
+    icon: (
+      <svg {...whyIconProps} aria-hidden="true">
+        <path d="M3 17l6-6 4 4 7-8" />
+        <path d="M15 6.5h5V11.5" />
+      </svg>
+    ),
+    title: "Maximum Market Value",
+    text: "Get the best value based on live gold rates.",
+  },
+  {
+    icon: (
+      <svg {...whyIconProps} aria-hidden="true">
+        <path d="M1.5 12S5 5.5 12 5.5 22.5 12 22.5 12 19 18.5 12 18.5 1.5 12 1.5 12z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    title: "Transparent Valuation",
+    text: "Fair, honest testing with no hidden deductions.",
+  },
+  {
+    icon: (
+      <svg {...whyIconProps} aria-hidden="true">
+        <circle cx="10.5" cy="10.5" r="6.5" />
+        <path d="M15.2 15.2 21 21" />
+        <path d="M8 10.5h5" />
+      </svg>
+    ),
+    title: "Advanced Purity Testing",
+    text: "Accurate, non-destructive gold analysis.",
+  },
+  {
+    icon: (
+      <svg {...whyIconProps} aria-hidden="true">
+        <rect x="4" y="10.5" width="16" height="10" rx="2" />
+        <path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5" />
+      </svg>
+    ),
+    title: "Instant Secure Payment",
+    text: "Fast and safe bank transfers.",
+  },
+  {
+    icon: (
+      <svg {...whyIconProps} aria-hidden="true">
+        <circle cx="12" cy="9" r="5.5" />
+        <path d="M8.3 13.8 7 21l5-2.6L17 21l-1.3-7.2" />
+      </svg>
+    ),
+    title: "Gold & Silver Experts",
+    text: "Buy, sell, and release valuables with confidence.",
+  },
+  {
+    icon: (
+      <svg {...whyIconProps} aria-hidden="true">
+        <path d="M12 3l7 2.8V11c0 4.4-2.9 7.4-7 9-4.1-1.6-7-4.6-7-9V5.8Z" />
+        <path d="M9 11.6l2.1 2.1L15.2 9.6" />
+      </svg>
+    ),
+    title: "Trusted Customer Service",
+    text: "Professional guidance with complete transparency.",
+  },
 ];
 
 const TESTIMONIALS = [
@@ -124,14 +183,39 @@ const REFER_STEPS = [
 ];
 
 const FAQS = [
-  { q: "How is the price of my gold decided?", a: "Your payout equals the weight of your gold × its tested purity × today's live rate. We weigh and karat-test everything live in front of you with certified equipment — no hidden deductions." },
-  { q: "What documents do I need to sell gold?", a: "A valid government-issued photo ID (Aadhaar, PAN, Passport or Driving Licence) is required as per regulations. For pledged gold, also bring the pledge receipt and loan documents." },
-  { q: "Do you pay in cash or bank transfer?", a: "Both. You can choose instant cash or an immediate bank transfer — whichever you prefer, paid the moment you accept the offer." },
-  { q: "Why is one shop's rate lower than another's?", a: "Some buyers advertise a high rate but then deduct for 'wastage', 'making charges' or 'melting loss'. We apply the displayed rate directly to your gold's tested purity — the rate you see is the rate you get." },
-  { q: "Can you release my pledged / pawned gold?", a: "Yes. We settle your outstanding gold loan with the bank or pawnshop, release your gold, and pay you the balance amount instantly. See the Release Pledged Gold section above." },
-  { q: "Is my visit confidential?", a: "Absolutely. All branches are CCTV-secured and your personal details and transaction are kept strictly confidential." },
-  { q: "Do you offer doorstep service?", a: "Yes — book a free pickup and our executive will value your gold at your home with the same transparency and instant payment." },
-  { q: "Is there any charge for valuation?", a: "No. Valuation is completely free and there is zero obligation to sell." },
+  { q: "What documents are required to sell gold at Jaya Gold Buyers?", a: "To sell your gold, please carry a valid government-issued ID such as Aadhaar Card, Passport, Driving Licence, or Voter ID. KYC verification is mandatory as per applicable regulations." },
+  { q: "Can I sell gold without a BIS Hallmark?", a: "Yes. We purchase both hallmarked and non-hallmarked gold. Our advanced purity testing equipment accurately evaluates your gold before offering a price." },
+  { q: "How do you check the purity of my gold?", a: "We use modern, non-destructive spectrometer technology that tests your gold without causing any damage. The evaluation is transparent, and you can watch the entire process." },
+  {
+    q: "How is the value of my gold calculated?",
+    a: "The final value depends on:",
+    points: ["Gold purity (Karat)", "Net gold weight", "Live market gold rate", "Current buying price"],
+  },
+  { q: "Do you buy old, broken or damaged jewellery?", a: "Yes. We purchase old jewellery, broken ornaments, unused jewellery, single earrings, chains, bangles, rings, coins and other gold items based on their gold value." },
+  { q: "Can I sell gold that is pledged with a bank or finance company?", a: "Yes. Jaya Gold Buyers can assist in releasing pledged gold from eligible banks and financial institutions, subject to verification and documentation." },
+  { q: "How long does the entire process take?", a: "Most transactions are completed within 05 minutes, including purity testing, KYC verification and payment." },
+  { q: "How will I receive my payment?", a: "Payments are made securely through bank transfer in compliance with government regulations after completing the verification process." },
+  { q: "Do you charge any hidden fees?", a: "No. We believe in complete transparency. You'll receive a detailed valuation before proceeding, with no hidden surprises." },
+  { q: "Can I sell gold without the original purchase bill?", a: "Yes. The purchase invoice is not mandatory. Valid identity proof and successful ownership verification are sufficient." },
+  { q: "Do you buy gold coins and biscuits?", a: "Yes. We purchase eligible gold coins, gold bars and gold biscuits after purity verification." },
+  { q: "Do you buy silver items as well?", a: "Yes. We also buy silver jewellery, silver articles, silver coins and other genuine silver items." },
+  { q: "What are your business hours?", a: "Our branch timings may vary by location. Please contact your nearest Jaya Gold Buyers branch or call us before your visit for the latest timings." },
+  { q: "Is the gold testing process safe?", a: "Absolutely. Our testing process is completely non-destructive and does not scratch, melt or damage your jewellery." },
+  {
+    q: "Why should I choose Jaya Gold Buyers?",
+    a: "Customers choose Jaya Gold Buyers because of:",
+    points: [
+      "Transparent gold valuation",
+      "Live market-based pricing",
+      "Advanced German purity testing technology",
+      "Fast and secure payment",
+      "Professional customer service",
+      "Trusted and ethical buying process",
+    ],
+  },
+  { q: "Do I have to sell after the valuation?", a: "No. Our gold evaluation is obligation-free. You are free to accept or decline our offer after receiving the valuation." },
+  { q: "Can someone else sell my gold on my behalf?", a: "Only the legal owner or an authorised person with valid documentation and required identification can complete the transaction." },
+  { q: "Is my personal information kept confidential?", a: "Yes. All customer information and KYC documents are handled securely and kept confidential in accordance with applicable privacy regulations." },
 ];
 
 export default function Home() {
@@ -189,20 +273,57 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Seven easy steps — sticky heading left, numbered accordion right */}
+      {/* Gold rate promo banner */}
+      <section className="section gold-promo" id="gold-rate-promo">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="gold-promo-bg"
+          src="/img/gold-rate-banner-2.png"
+          alt="Check the live gold and silver rate on the Jaya Gold Buyers app"
+        />
+        <div className="container gold-promo-wrap">
+          <div className="gold-promo-copy">
+            <h2>
+              Check Live
+              <br />
+              Gold/Silver Rate
+            </h2>
+            <p className="gold-promo-sub">
+              Guaranteed rate
+              <br />
+              across all our Bengaluru.
+            </p>
+            <div className="gold-promo-btns">
+              <a href="#live-rate" className="btn btn-outline">
+                Check Gold Rate
+              </a>
+              <a
+                href={waLink("Hi Jaya Gold Buyers, I'd like to enquire about gold rates.")}
+                target="_blank"
+                rel="noopener"
+                className="btn btn-outline"
+              >
+                Enquire Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Six easy steps — sticky heading left, numbered accordion right */}
       <section className="section bg-white" id="how-it-works">
         <div className="container steps-grid steps-grid-3">
           <div className="steps-head">
             <h2>
-              <span className="accent">Sell Gold in Bengaluru with</span>
+              <span className="accent">Need to Release or Sell Gold in Bengaluru?</span>
               <br />
-              Five Easy Steps
+              In 6 Easy Steps.
             </h2>
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="steps-model"
-            src="/img/steps-model.jpg"
+            src="/img/steps-model-2.png"
             alt="Sell your gold in seven easy steps at Jaya Gold Buyers"
           />
           <StepsAccordion />
@@ -217,7 +338,7 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="faq-img"
-            src="/img/faq-left.png"
+            src="/img/faq-section-2.png"
             alt="Jaya Gold Buyers — here to answer your gold questions"
           />
           <div className="faq-col">
@@ -234,6 +355,47 @@ export default function Home() {
                 Ask us on WhatsApp →
               </a>
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Jaya */}
+      <section className="section bg-dark" id="why">
+        <div className="container why-wrap">
+          <div className="why-copy">
+            <h2 className="why-heading">
+              Why
+              <br />
+              Jaya Gold
+              <br />
+              Buyers?
+            </h2>
+            <div className="why-cta">
+              <span className="why-cta-label">To Know More:</span>
+              <a
+                className="btn btn-primary why-brochure"
+                href={waLink("Hi Jaya Gold Buyers, please share your brochure.")}
+                target="_blank"
+                rel="noopener"
+              >
+                Download Brochure
+              </a>
+            </div>
+          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className="why-media"
+            src="/img/why-us.png"
+            alt="Jaya Gold Buyers customer checking live gold rates on the app"
+          />
+          <div className="why-grid">
+            {WHY.map((w) => (
+              <div className="why-card" key={w.title}>
+                <div className="why-ic">{w.icon}</div>
+                <h4>{w.title}</h4>
+                <p>{w.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -331,33 +493,6 @@ export default function Home() {
                 { name: "lender", label: "Pledged With", type: "select", options: ["Bank", "NBFC / Finance Co.", "Pawnshop", "Multiple"] },
               ]}
             />
-          </div>
-        </div>
-      </section>
-
-      {/* Why Jaya */}
-      <section className="section bg-dark" id="why">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Why Jaya Gold Buyers</span>
-            <h2>Strength You Can Trust</h2>
-          </div>
-          <div className="grid grid-3">
-            {WHY.map(([ic, h, p]) => (
-              <div className="card" key={h}>
-                <div className="ic">{ic}</div>
-                <h3>{h}</h3>
-                <p>{p}</p>
-              </div>
-            ))}
-          </div>
-          <div className="grid grid-4" style={{ marginTop: 26 }}>
-            {STATS.map(([n, l]) => (
-              <div className="card text-center" key={l}>
-                <h2 style={{ color: "var(--red)" }}>{n}</h2>
-                <p>{l}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

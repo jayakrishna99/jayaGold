@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export type QA = { q: string; a: string };
+export type QA = { q: string; a: string; points?: string[] };
 
 export default function Faq({ items }: { items: QA[] }) {
   const [open, setOpen] = useState<number | null>(0);
@@ -17,6 +17,13 @@ export default function Faq({ items }: { items: QA[] }) {
           </button>
           <div className="faq-a">
             <p>{item.a}</p>
+            {item.points && (
+              <ul>
+                {item.points.map((pt, j) => (
+                  <li key={j}>{pt}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       ))}
