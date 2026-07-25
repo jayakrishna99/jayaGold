@@ -15,23 +15,19 @@ export default function Footer() {
               </span>
             </div>
             <p>
-              Jaya Gold Buyers — the trusted name for selling old gold &amp;
-              silver across South India. Strength You Can Trust!
+              Jaya Gold Buyers is Bengaluru&apos;s trusted destination for
+              buying, selling, and releasing gold &amp; silver with
+              transparent valuation and instant secure payments.
             </p>
             <div className="socials">
               <a href="#" aria-label="Facebook">f</a>
               <a href="#" aria-label="Instagram">◎</a>
-              <a href="#" aria-label="X">𝕏</a>
-              <a href="#" aria-label="YouTube">▶</a>
             </div>
           </div>
           <div>
             <h4>Quick Links</h4>
             <ul>
               <li><a href="#live-rate">Live Gold Rate</a></li>
-              <li><a href="#sell-gold">Sell Gold</a></li>
-              <li><a href="#release-gold">Release Pledged Gold</a></li>
-              <li><a href="#refer">Refer &amp; Earn</a></li>
               <li><a href="#why">Why Jaya</a></li>
             </ul>
           </div>
@@ -46,9 +42,18 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <ul>
-              <li>📞 <a href={`tel:${CONFIG.phone}`}>{CONFIG.phoneDisplay}</a></li>
-              <li>✉️ {CONFIG.email}</li>
-              <li>📍 {CONFIG.address}</li>
+              <li>📍 Opposite Joy Alukkas, 4th Block, Jayanagar, Bengaluru, Karnataka 560011</li>
+              <li>📞 <a href="tel:+919108959886">+91 91089 59886</a></li>
+              <li>✉️ <a href="mailto:info@jayagoldbuyers.com">info@jayagoldbuyers.com</a></li>
+              <li>
+                <a
+                  href="https://www.google.com/maps/place/Jaya+Gold+Buyers/@12.9262579,77.5856737,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae151d05f34d93:0x47662da8b66cfe2b!8m2!3d12.9262579!4d77.5856737!16s%2Fg%2F11x5ypxggc?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  📍 Location &amp; Reviews
+                </a>
+              </li>
               <li>🕘 {CONFIG.hours}</li>
             </ul>
           </div>

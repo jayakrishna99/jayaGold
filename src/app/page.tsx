@@ -1,99 +1,13 @@
-import { waLink } from "@/lib/config";
+import { CONFIG, waLink } from "@/lib/config";
 import HeroCarousel from "@/components/HeroCarousel";
 import StepsAccordion from "@/components/StepsAccordion";
 import SimpleWaForm from "@/components/SimpleWaForm";
 import RateBoard from "@/components/RateBoard";
 import Calculator from "@/components/Calculator";
 import Faq from "@/components/Faq";
+import ContactForm from "@/components/ContactForm";
+import ReviewsShowcase from "@/components/ReviewsShowcase";
 import { CtaBand } from "@/components/Shared";
-
-const svcIconProps = {
-  viewBox: "0 0 24 24",
-  width: 26,
-  height: 26,
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.9,
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
-} as const;
-
-const SERVICES = [
-  {
-    icon: (
-      <svg {...svcIconProps} aria-hidden="true">
-        <circle cx="12" cy="15" r="5.5" />
-        <path d="M9.4 6.6 12 3.4l2.6 3.2" />
-        <path d="M9.4 6.6h5.2L12 9.8z" />
-      </svg>
-    ),
-    title: "Old Gold Jewellery",
-    text: "Rings, chains, bangles, necklaces — any condition, broken or worn. We pay by live 22K/24K rate.",
-  },
-  {
-    icon: (
-      <svg {...svcIconProps} aria-hidden="true">
-        <circle cx="12" cy="7.3" r="3.4" />
-        <path d="M5.2 13.5h5.6l1.3 5H3.9z" />
-        <path d="M13.2 13.5h5.6l1.3 5h-8.2z" />
-      </svg>
-    ),
-    title: "Gold Coins & Bars",
-    text: "Bring your coins, biscuits and bullion. Instant valuation at pure 24K market price.",
-  },
-  {
-    icon: (
-      <svg {...svcIconProps} aria-hidden="true">
-        <path d="M11 4l1.6 4.6 4.6 1.6-4.6 1.6L11 16.4l-1.6-4.6L4.8 10.2l4.6-1.6z" />
-        <path d="M18.2 15.4l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" />
-      </svg>
-    ),
-    title: "Silver Articles",
-    text: "Silver jewellery, coins and utensils bought at the current daily silver rate.",
-  },
-  {
-    icon: (
-      <svg {...svcIconProps} aria-hidden="true">
-        <rect x="4.5" y="11" width="15" height="9" rx="2" />
-        <path d="M8 11V7.5A4 4 0 0 1 15.9 6.6" />
-        <path d="M12 14.5v2" />
-      </svg>
-    ),
-    title: "Release Pledged Gold",
-    text: "Locked your gold in a bank or pawnshop? We settle your loan and buy your released gold.",
-  },
-  {
-    icon: (
-      <svg {...svcIconProps} aria-hidden="true">
-        <path d="M7.5 4.5h9L21 9.5 12 20 3 9.5z" />
-        <path d="M3 9.5h18" />
-        <path d="M12 20 8.5 9.5 12 4.5l3.5 5z" />
-      </svg>
-    ),
-    title: "Diamond & Stone Jewellery",
-    text: "We fairly value the gold and appraise diamonds & precious stones separately.",
-  },
-  {
-    icon: (
-      <svg {...svcIconProps} aria-hidden="true">
-        <path d="M2.5 8.5h11v7h-11z" />
-        <path d="M13.5 11h4.2l3 3v1.5h-2.4" />
-        <circle cx="7" cy="17" r="1.8" />
-        <circle cx="16.6" cy="17" r="1.8" />
-        <path d="M8.8 17h6" />
-      </svg>
-    ),
-    title: "Doorstep Service",
-    text: "Prefer not to travel? Book a free home pickup — our expert evaluates gold at your door.",
-  },
-];
-
-const RELEASE_STEPS = [
-  ["Share Loan Details", "Bring your pledge receipt and loan documents, or send them on WhatsApp for a quick assessment."],
-  ["We Value the Gold", "We calculate your gold's worth at today's live rate and the exact amount needed to close your loan."],
-  ["We Settle the Loan", "Our team visits the bank/lender with you, pays off the outstanding loan and releases your gold."],
-  ["You Get the Balance", "We buy the released gold and pay you the difference instantly in cash or bank transfer."],
-];
 
 const whyIconProps = {
   viewBox: "0 0 24 24",
@@ -168,18 +82,6 @@ const WHY = [
     title: "Trusted Customer Service",
     text: "Professional guidance with complete transparency.",
   },
-];
-
-const TESTIMONIALS = [
-  ["R", "Ramesh K.", "Bangalore", "Got ₹8,000 more than the shop next door. Weighing was done right in front of me and cash was instant."],
-  ["S", "Sowmya P.", "Chennai", "They released my pledged gold from the bank and paid me the balance the same day. Very professional team."],
-  ["A", "Anil M.", "Kochi", "Booked a home pickup, the executive tested everything at my doorstep. Fair rate, zero hassle."],
-];
-
-const REFER_STEPS = [
-  ["📲", "1. Share", "Share your referral via WhatsApp with friends or family who want to sell their gold."],
-  ["🤝", "2. They Sell", "Your referral sells their gold at any Jaya branch or through a doorstep pickup."],
-  ["💵", "3. You Earn", "Once the deal is complete, your cash reward is credited to you. Simple as that."],
 ];
 
 const FAQS = [
@@ -400,28 +302,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sell gold */}
-      <section className="section" id="sell-gold">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Sell Gold</span>
-            <h2>Everything We Buy &amp; Every Way We Help</h2>
-            <p className="lead">
-              From a single ring to pledged gold locked in a bank — Jaya Gold
-              Buyers turns your gold into fair, instant cash.
-            </p>
-          </div>
-          <div className="grid grid-3">
-            {SERVICES.map((s) => (
-              <div className="card" key={s.title}>
-                <div className="ic">{s.icon}</div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Testimonials */}
+      <ReviewsShowcase />
 
       {/* Live rate + calculator */}
       <section className="section bg-coral" id="live-rate">
@@ -445,116 +327,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Release pledged gold */}
-      <section className="section bg-grey" id="release-gold">
+      {/* Contact */}
+      <section className="section bg-grey" id="contact">
         <div className="container">
           <div className="section-head">
-            <span className="eyebrow">Release Pledged Gold</span>
-            <h2>Free Your Gold in 4 Steps</h2>
+            <span className="eyebrow">Get In Touch</span>
+            <h2>We&apos;re Here to Help</h2>
             <p className="lead">
-              Locked your gold in a bank, NBFC or pawnshop? We clear the loan
-              and pay you the balance — hassle-free.
-            </p>
-          </div>
-          <div className="grid grid-4">
-            {RELEASE_STEPS.map(([h, p], i) => (
-              <div className="step" key={h}>
-                <div className="num">{i + 1}</div>
-                <h4>{h}</h4>
-                <p>{p}</p>
-              </div>
-            ))}
-          </div>
-          <div className="rate-wrap mt-24" style={{ marginTop: 44 }}>
-            <div className="prose">
-              <h3 style={{ marginTop: 0 }}>Why Pay Interest on Gold You Want to Sell?</h3>
-              <p>
-                Gold loan interest quietly eats into your monthly savings — and
-                if you default, you may recover only a fraction of your
-                gold&apos;s real value. Selling through Jaya lets you close the
-                loan and unlock the true market worth of your jewellery today.
-              </p>
-              <ul>
-                <li>✅ We settle loans from multiple lenders</li>
-                <li>✅ Transparent live-rate valuation</li>
-                <li>✅ Full support with release paperwork</li>
-                <li>✅ Instant payout of the balance amount</li>
-              </ul>
-            </div>
-            <SimpleWaForm
-              title="Get a Pledged-Gold Assessment"
-              subtitle="Send your loan details — we'll estimate your balance amount."
-              intro="Hello Jaya Gold Buyers! I want to release my pledged gold."
-              submitLabel="Get Assessment on WhatsApp →"
-              fields={[
-                { name: "name", label: "Full Name", required: true },
-                { name: "phone", label: "Phone", type: "tel", required: true },
-                { name: "weight", label: "Pledged Weight (g)", type: "number" },
-                { name: "lender", label: "Pledged With", type: "select", options: ["Bank", "NBFC / Finance Co.", "Pawnshop", "Multiple"] },
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section bg-grey">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Customer Stories</span>
-            <h2>What Our Customers Say</h2>
-          </div>
-          <div className="grid grid-3">
-            {TESTIMONIALS.map(([av, name, city, quote]) => (
-              <div className="tcard" key={name}>
-                <div className="stars">★★★★★</div>
-                <p>&quot;{quote}&quot;</p>
-                <div className="who">
-                  <div className="av">{av}</div>
-                  <div>
-                    <b>{name}</b>
-                    <br />
-                    <span>{city}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Refer & earn */}
-      <section className="section" id="refer">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Refer &amp; Earn</span>
-            <h2>Earn in 3 Simple Steps</h2>
-            <p className="lead">
-              Know someone who wants to sell gold? Refer them and earn a{" "}
-              <b>₹500 cash reward</b> on every successful deal.
+              Have questions about selling gold, releasing pledged
+              jewellery, or checking today&apos;s gold value? Our team is
+              ready to assist you with expert guidance and transparent
+              service.
             </p>
           </div>
           <div className="rate-wrap">
-            <div className="refer-steps" style={{ gridTemplateColumns: "1fr" }}>
-              {REFER_STEPS.map(([ic, h, p]) => (
-                <div className="card" key={h}>
-                  <div className="ic">{ic}</div>
-                  <h3>{h}</h3>
-                  <p>{p}</p>
+            <div className="contact-info">
+              <div className="contact-cards">
+                <div className="contact-card">
+                  <span className="contact-card-ic">📍</span>
+                  <div>
+                    <h4>Visit Our Branch</h4>
+                    <p>
+                      Jaya Gold Buyers
+                      <br />
+                      {CONFIG.address}
+                    </p>
+                  </div>
                 </div>
-              ))}
+                <div className="contact-card">
+                  <span className="contact-card-ic">📞</span>
+                  <div>
+                    <h4>Get in Touch</h4>
+                    <p>
+                      Phone: <a href="tel:+919108959886">+91 91089 59886</a>
+                      <br />
+                      Email:{" "}
+                      <a href="mailto:info@jayagoldbuyers.com">
+                        info@jayagoldbuyers.com
+                      </a>
+                      <br />
+                      Website:{" "}
+                      <a
+                        href="https://www.jayagoldbuyers.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        www.jayagoldbuyers.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div className="contact-card">
+                  <span className="contact-card-ic">🕘</span>
+                  <div>
+                    <h4>Business Hours</h4>
+                    <p>
+                      Monday – Saturday: 11 AM – 7:00 PM
+                      <br />
+                      Sunday: Closed
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="map-card">
+                <iframe
+                  src="https://www.google.com/maps?q=Jaya+Gold+Buyers,+4th+Block,+Jayanagar,+Bengaluru&z=17&output=embed"
+                  width="100%"
+                  height="240"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Jaya Gold Buyers Location"
+                />
+                <div className="map-card-info">
+                  <a
+                    href="https://www.google.com/maps/place/Jaya+Gold+Buyers/@12.9262579,77.5856737,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae151d05f34d93:0x47662da8b66cfe2b!8m2!3d12.9262579!4d77.5856737!16s%2Fg%2F11x5ypxggc?entry=ttu&g_ep=EgoyMDI2MDcxNS4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Location &amp; Reviews →
+                  </a>
+                </div>
+              </div>
             </div>
-            <SimpleWaForm
-              title="Refer & Earn"
-              subtitle="Enter your details and your friend's contact — we'll take it from there."
-              intro="Hello Jaya Gold Buyers! I'd like to refer someone."
-              submitLabel="Submit Referral →"
-              fields={[
-                { name: "name", label: "Your Name", required: true },
-                { name: "phone", label: "Your Phone", type: "tel", required: true },
-                { name: "friend", label: "Friend's Name & Number", placeholder: "e.g. Priya – 98xxxxxxx0" },
-              ]}
-            />
+            <ContactForm />
           </div>
         </div>
       </section>

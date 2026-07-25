@@ -32,9 +32,19 @@ function UnlockIcon() {
 }
 
 const ACTIONS = [
-  { icon: <RateIcon />, label: "Live Gold Rate", href: "#live-rate" },
-  { icon: <CoinsIcon />, label: "Sell Gold & Silver", href: "#sell-gold" },
-  { icon: <UnlockIcon />, label: "Release Gold & Silver", href: "#release-gold" },
+  { icon: <RateIcon />, label: "Live Gold Rate", href: "#live-rate", external: false },
+  {
+    icon: <CoinsIcon />,
+    label: "Sell Gold & Silver",
+    href: waLink("Hi Jaya Gold Buyers, I want to sell my gold/silver."),
+    external: true,
+  },
+  {
+    icon: <UnlockIcon />,
+    label: "Release Gold & Silver",
+    href: waLink("Hi Jaya Gold Buyers, I want to release my pledged gold/silver."),
+    external: true,
+  },
 ];
 
 export default function StickyMenu() {
@@ -72,7 +82,13 @@ export default function StickyMenu() {
         <div className="sm-card">
           <div className={`sm-actions${open ? " open" : ""}`}>
             {ACTIONS.map((a) => (
-              <a className="sm-btn" href={a.href} key={a.href} onClick={close}>
+              <a
+                className="sm-btn"
+                href={a.href}
+                key={a.label}
+                onClick={close}
+                {...(a.external ? { target: "_blank", rel: "noopener" } : {})}
+              >
                 <span className="sm-btn-ic" aria-hidden="true">{a.icon}</span>
                 <span>{a.label}</span>
               </a>
