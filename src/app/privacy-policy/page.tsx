@@ -12,6 +12,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <PageHero
+        back
         crumb="Privacy Policy"
         title="Privacy Policy"
         sub="Your privacy matters to us. Here's how we handle your information."

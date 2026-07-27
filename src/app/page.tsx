@@ -1,9 +1,8 @@
 import { CONFIG, waLink } from "@/lib/config";
 import HeroCarousel from "@/components/HeroCarousel";
+import PledgeHero from "@/components/PledgeHero";
 import StepsAccordion from "@/components/StepsAccordion";
 import SimpleWaForm from "@/components/SimpleWaForm";
-import RateBoard from "@/components/RateBoard";
-import Calculator from "@/components/Calculator";
 import Faq from "@/components/Faq";
 import ContactForm from "@/components/ContactForm";
 import ReviewsShowcase from "@/components/ReviewsShowcase";
@@ -160,20 +159,11 @@ export default function Home() {
             </span>{" "}
             100% Safe &amp; Confidential
           </div>
-          <div className="trust-item">
-            <span className="ic">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M2.5 8.5h11v7h-11z" />
-                <path d="M13.5 11h4.2l3 3v1.5h-2.4" />
-                <circle cx="7" cy="17" r="1.8" />
-                <circle cx="16.6" cy="17" r="1.8" />
-                <path d="M8.8 17h6" />
-              </svg>
-            </span>{" "}
-            Free Doorstep Pickup
-          </div>
         </div>
       </div>
+
+      {/* Pledge / Release / Buy & Sell — PDF page 2 */}
+      <PledgeHero />
 
       {/* Gold rate promo banner */}
       <section className="section gold-promo" id="gold-rate-promo">
@@ -196,7 +186,7 @@ export default function Home() {
               across all our Bengaluru.
             </p>
             <div className="gold-promo-btns">
-              <a href="#live-rate" className="btn btn-outline">
+              <a href="#sell-gold" className="btn btn-outline">
                 Check Gold Rate
               </a>
               <a
@@ -212,51 +202,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Six easy steps — sticky heading left, numbered accordion right */}
-      <section className="section bg-white" id="how-it-works">
-        <div className="container steps-grid steps-grid-3">
-          <div className="steps-head">
-            <h2>
-              <span className="accent">Need to Release or Sell Gold in Bengaluru?</span>
-              <br />
-              In 6 Easy Steps.
-            </h2>
+      {/* Six easy steps + FAQs — one shared sticky model image between the two,
+          each with its own heading + content scrolling past the picture */}
+      <section className="section bg-white steps-faq" id="how-it-works">
+        <div className="container steps-faq-wrap">
+          {/* ONE shared model image, centred and pinned across BOTH sections */}
+          <div className="steps-faq-media">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="steps-model"
+              src="/img/steps-model-2.png"
+              alt="Sell or release gold in easy steps at Jaya Gold Buyers"
+            />
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="steps-model"
-            src="/img/steps-model-2.png"
-            alt="Sell your gold in seven easy steps at Jaya Gold Buyers"
-          />
-          <StepsAccordion />
-        </div>
-      </section>
 
-      {/* FAQs — left-aligned heading, list below (PDF p.2 bottom) */}
-      <section className="section has-orbs bg-coral" id="faqs">
-        <span className="plx-orb orb-a" data-plx="0.22" aria-hidden="true" />
-        <span className="plx-orb orb-b" data-plx="-0.14" aria-hidden="true" />
-        <div className="container faq-grid">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="faq-img"
-            src="/img/faq-section-2.png"
-            alt="Jaya Gold Buyers — here to answer your gold questions"
-          />
-          <div className="faq-col">
-            <span className="eyebrow">Common Questions</span>
-            <h2>Frequently Asked Questions</h2>
-            <Faq items={FAQS} />
-            <p className="faq-more">
-              Still have a question?{" "}
-              <a
-                href={waLink("Hi Jaya Gold Buyers, I have a question.")}
-                target="_blank"
-                rel="noopener"
-              >
-                Ask us on WhatsApp →
-              </a>
-            </p>
+          {/* Row 1 — steps: heading sticks within this row only */}
+          <div className="steps-faq-row">
+            <div className="steps-head steps-faq-head">
+              <h2>
+                <span className="accent">Need to Release or Sell Gold in Bengaluru?</span>
+                <br />
+                In 6 Easy Steps.
+              </h2>
+            </div>
+            <div className="steps-faq-content">
+              <StepsAccordion />
+            </div>
+          </div>
+
+          {/* Row 2 — FAQ: heading sticks within this row only */}
+          <div className="steps-faq-row" id="faqs">
+            <div className="steps-head steps-faq-head">
+              <h2>
+                <span className="accent">Common Questions</span>
+                <br />
+                Frequently Asked Questions
+              </h2>
+            </div>
+            <div className="steps-faq-content faq-col">
+              <Faq items={FAQS} initialCount={4} />
+              <p className="faq-more">
+                Still have a question?{" "}
+                <a
+                  href={waLink("Hi Jaya Gold Buyers, I have a question.")}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Ask us on WhatsApp →
+                </a>
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -305,30 +300,8 @@ export default function Home() {
       {/* Testimonials */}
       <ReviewsShowcase />
 
-      {/* Live rate + calculator */}
-      <section className="section bg-coral" id="live-rate">
-        <div className="container">
-          <div className="section-head">
-            <span className="eyebrow">Know Your Value</span>
-            <h2>Today&apos;s Live Gold Rate</h2>
-            <p className="lead">
-              Transparent, up-to-the-minute rates — the same price you&apos;ll
-              get at every Jaya branch. Estimate your payout before you visit.
-            </p>
-          </div>
-          <div className="rate-wrap">
-            <div data-plx="0.06">
-              <RateBoard detailed />
-            </div>
-            <div data-plx="-0.05">
-              <Calculator />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact */}
-      <section className="section bg-grey" id="contact">
+      <section className="section bg-coral" id="contact">
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Get In Touch</span>
@@ -384,7 +357,7 @@ export default function Home() {
                     <p>
                       Monday – Saturday: 11 AM – 7:00 PM
                       <br />
-                      Sunday: Closed
+                      Friday: Closed (Update if applicable.)
                     </p>
                   </div>
                 </div>

@@ -37,7 +37,7 @@ const GROUPS: { kicker: string; steps: Step[] }[] = [
         title: "Check Gold Rate",
         big: "Live, Transparent Rate",
         body: "Based on your gold's tested purity, we give you a quotation at our transparent, live gold rate.",
-        cta: { label: "Check Live Gold Rate Now", href: "#live-rate" },
+        cta: { label: "Check Live Gold Rate Now", href: "#sell-gold" },
       },
       {
         title: "KYC Verification",

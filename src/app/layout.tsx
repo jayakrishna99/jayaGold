@@ -7,6 +7,7 @@ import Loader from "@/components/Loader";
 import LeadPopup from "@/components/LeadPopup";
 import ScrollReveal from "@/components/ScrollReveal";
 import Parallax from "@/components/Parallax";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
   title: "Jaya Gold Buyers | Sell Gold for Cash in Bangalore | Best Gold Buyers",
@@ -47,6 +48,7 @@ export default function RootLayout({
         <StickyMenu />
         {children}
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );

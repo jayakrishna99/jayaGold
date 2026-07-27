@@ -125,6 +125,10 @@ h4 { font-family: var(--font); font-weight: 600; }
 .btn-wa { background:var(--wa-green); color:#fff; }
 .btn-wa:hover { background:#1eb257; }
 .btn-lg { padding:16px 36px; font-size:1rem; }
+.back-link { display:inline-flex; align-items:center; gap:6px; margin-bottom:28px; color:var(--red); font-weight:500; font-size:.95rem; }
+.back-link:hover { color:var(--red-dark); }
+.back-link svg { transition:transform .15s ease; }
+.back-link:hover svg { transform:translateX(-3px); }
 
 /* Brand logotype — serif "JAYA — GOLD BUYERS —" like the PDF */
 .brand { display:inline-flex; flex-direction:column; align-items:center; line-height:1; }
@@ -193,6 +197,18 @@ section[id] { scroll-margin-top: 96px; }
 body { padding-bottom: 96px; }
 .sticky-menu { position:fixed; bottom:18px; left:0; right:0; z-index:60; opacity:0; transform:translateY(140%); pointer-events:none; transition:transform .6s cubic-bezier(.22,.9,.3,1), opacity .5s ease; }
 .sticky-menu.show { opacity:1; transform:none; pointer-events:auto; }
+
+/* Back-to-top — appears when the footer is reached, sits above the sticky bar */
+.back-to-top {
+  position:fixed; right:22px; bottom:84px; z-index:70;
+  width:46px; height:46px; border-radius:50%; border:0; cursor:pointer;
+  background:var(--red); color:#fff; display:grid; place-items:center;
+  box-shadow:0 10px 26px rgba(217,45,52,.4);
+  opacity:0; transform:translateY(16px) scale(.9); pointer-events:none;
+  transition:opacity .3s ease, transform .3s ease, background .2s ease;
+}
+.back-to-top.show { opacity:1; transform:none; pointer-events:auto; }
+.back-to-top:hover { background:var(--red-dark); transform:translateY(-2px); }
 .sm-card { position:relative; background:linear-gradient(135deg, rgba(47,43,43,.96), rgba(30,27,27,.93)); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.1); border-radius:18px; padding:10px; display:flex; gap:10px; align-items:stretch; box-shadow:0 16px 44px rgba(20,17,17,.4), inset 0 1px 0 rgba(255,255,255,.08); }
 .sm-card::before { content:""; position:absolute; top:0; left:26px; right:26px; height:2px; border-radius:2px; background:linear-gradient(90deg, transparent, var(--coral), var(--gold), var(--coral), transparent); opacity:.85; }
 .sm-actions { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; flex:1; }
@@ -261,9 +277,71 @@ body { padding-bottom: 96px; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 .form-note { font-size:.78rem; color:var(--grey); margin-top:10px; }
 
+/* Pledge / Release / Buy & Sell hero band — Website.pdf page 2 */
+.pledge { background:var(--cream); padding:70px 0; overflow:hidden; }
+.pledge-wrap {
+  display:grid;
+  grid-template-columns:minmax(300px,380px) 1fr minmax(300px,420px);
+  align-items:center;
+  gap:20px;
+}
+.pledge-form-col { position:relative; z-index:2; }
+.pledge-card {
+  background:#fff; border:1px solid rgba(233,226,210,.7);
+  border-radius:20px; padding:34px 30px;
+  box-shadow:0 24px 60px rgba(38,35,35,.12);
+}
+.pledge-card .field input {
+  border:1.5px solid var(--line); border-radius:12px; padding:15px 16px;
+  font-size:1rem;
+}
+.pledge-card .field input::placeholder { color:#9a938d; }
+.pledge-consent { font-size:.82rem; color:var(--grey); line-height:1.5; margin:2px 0 18px; }
+.pledge-submit {
+  display:inline-flex; align-items:center; gap:12px;
+  background:#eef0f4; color:var(--ink); border:0;
+  font-size:1.05rem; font-weight:500; letter-spacing:.02em;
+  padding:14px 26px; border-radius:12px; cursor:pointer;
+  box-shadow:0 8px 20px rgba(38,35,35,.08);
+  transition:transform .15s ease, box-shadow .2s ease, background .2s;
+}
+.pledge-submit:hover { transform:translateY(-2px); background:#e7eaf0; box-shadow:0 12px 26px rgba(38,35,35,.12); }
+.pledge-rupee { color:var(--red); font-weight:700; font-size:1.5rem; line-height:1; }
+.pledge-call { display:inline-flex; align-items:center; gap:14px; margin-top:22px; color:var(--ink); }
+.pledge-call-ic { color:var(--ink); display:grid; place-items:center; }
+.pledge-call-txt { display:flex; flex-direction:column; line-height:1.15; }
+.pledge-call-lbl { font-size:.78rem; font-weight:600; letter-spacing:.1em; color:var(--grey); }
+.pledge-call-num { font-size:1.5rem; font-weight:600; letter-spacing:.01em; }
+.pledge-call:hover .pledge-call-num { color:var(--red); }
+
+.pledge-model { align-self:end; text-align:center; }
+.pledge-model img { max-height:560px; width:auto; margin:0 auto; filter:drop-shadow(0 30px 40px rgba(38,35,35,.14)); }
+
+.pledge-copy { text-align:right; }
+.pledge-tagline {
+  font-family:var(--serif); color:var(--coral);
+  font-size:clamp(1.5rem,2.4vw,2.1rem); line-height:1.18; font-weight:400;
+}
+.pledge-tagline b { color:var(--red); font-weight:700; }
+.pledge-cta { display:flex; gap:12px; justify-content:flex-end; flex-wrap:nowrap; margin-top:26px; }
+.pledge-cta .btn { padding:11px 22px; font-size:.88rem; white-space:nowrap; }
+
+@media (max-width:1040px) {
+  .pledge-wrap { grid-template-columns:1fr 1fr; }
+  .pledge-model { grid-column:1 / -1; grid-row:1; order:-1; }
+  .pledge-model img { max-height:420px; }
+  .pledge-copy { text-align:center; }
+  .pledge-cta { justify-content:center; }
+}
+@media (max-width:640px) {
+  .pledge-wrap { grid-template-columns:1fr; }
+  .pledge-model img { max-height:340px; }
+}
+
 /* Get In Touch — small info cards */
+.contact-info { display:flex; flex-direction:column; }
 .contact-cards { display:flex; flex-direction:column; gap:14px; margin-bottom:22px; }
-.contact-card { display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid rgba(233,226,210,.6); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow-sm); }
+.contact-card { display:flex; gap:14px; align-items:flex-start; background:var(--cream); border:1px solid rgba(233,226,210,.6); border-radius:var(--radius); padding:16px 18px; box-shadow:var(--shadow-md); }
 .contact-card-ic { width:38px; height:38px; border-radius:50%; background:var(--coral-tint); display:grid; place-items:center; font-size:1.05rem; flex-shrink:0; }
 .contact-card h4 { color:var(--red); font-size:.92rem; margin-bottom:4px; }
 .contact-card p { color:var(--grey); font-size:.84rem; line-height:1.55; margin:0; }
@@ -271,8 +349,8 @@ body { padding-bottom: 96px; }
 .contact-card p a:hover { color:var(--red); }
 
 /* Contact map card */
-.map-card { background:var(--cream); border-radius:var(--radius); box-shadow:var(--shadow-md); overflow:hidden; }
-.map-card iframe { display:block; }
+.map-card { background:var(--cream); border-radius:var(--radius); box-shadow:var(--shadow-md); overflow:hidden; display:flex; flex-direction:column; flex:1; }
+.map-card iframe { display:block; flex:1; min-height:240px; }
 .map-card-info { padding:16px 20px; }
 .map-card-info p { margin:0 0 10px; color:var(--ink); }
 .map-card-info a { font-weight:600; color:var(--red); }
@@ -309,7 +387,7 @@ body { padding-bottom: 96px; }
 .bg-coral .step p { color:rgba(255,255,255,.88); }
 
 /* Live gold rate */
-.rate-wrap { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+.rate-wrap { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:stretch; }
 .rate-board { background:var(--dark); border:1px solid var(--dark-2); color:#F0EDE6; border-radius:var(--radius); padding:28px; box-shadow:var(--shadow-md); }
 .rate-board h3 { color:var(--coral); display:flex; align-items:center; gap:10px; }
 .live-dot { width:10px; height:10px; border-radius:50%; background:#3ddc6f; box-shadow:0 0 0 0 rgba(61,220,111,.6); animation:pulse 1.6s infinite; display:inline-block; }
@@ -331,7 +409,7 @@ body { padding-bottom: 96px; }
 /* Testimonials — Real Customers, Real Experiences */
 .reviews-grid { align-items: center; gap: 56px; }
 .reviews-title { color: var(--red); font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 30px; }
-.reviews-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 480px; }
+.reviews-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 480px; }
 .stat-box { background: #fff; border: 1px solid rgba(233,226,210,.6); border-radius: var(--radius); padding: 14px 10px; box-shadow: var(--shadow-sm); text-align: center; }
 .stat-box b { display: block; font-family: var(--serif); font-size: 1.2rem; color: var(--red); white-space: nowrap; }
 .stat-box span { font-size: .68rem; color: var(--grey); line-height: 1.3; }
@@ -462,6 +540,15 @@ body { padding-bottom: 96px; }
 .faq-col > h2 { color:var(--red); margin:6px 0 26px; }
 .faq-more { margin-top:24px; color:var(--grey); }
 .faq-more a { color:var(--red); font-weight:600; }
+.faq-showmore {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:16px; padding:10px 22px;
+  background:var(--red); color:#fff; border:0; border-radius:8px;
+  font-family:inherit; font-size:.88rem; font-weight:500; letter-spacing:.03em;
+  cursor:pointer; transition:transform .15s ease, background .2s;
+}
+.faq-showmore:hover { background:var(--red-dark); transform:translateY(-2px); }
+.faq-showmore-ic { font-size:1.15rem; line-height:1; }
 .bg-coral .faq-col > h2 { color:#fff; }
 .bg-coral .faq-more { color:rgba(255,255,255,.92); }
 .bg-coral .faq-more a { color:var(--butter); }
@@ -469,6 +556,45 @@ body { padding-bottom: 96px; }
 /* Center model column in the steps section (PDF p.2) */
 .steps-grid-3 { grid-template-columns:.85fr 1.15fr 1.3fr; }
 .steps-model { width:100%; max-width:520px; height:auto; justify-self:center; align-self:end; }
+
+/* Steps + FAQ share ONE sticky image pinned across both rows. Each row is its own
+   grid (heading | centre gap | content); because the heading's containing block is
+   its OWN row, it pins while that row scrolls and releases at the row boundary —
+   so the two headings never overlap. The image is a sticky sibling spanning both. */
+.steps-faq-wrap { position:relative; }
+.steps-faq-row {
+  display:grid;
+  grid-template-columns:.85fr 1.15fr 1.3fr;   /* heading | (image gap) | content */
+  column-gap:56px;
+  align-items:start;
+}
+.steps-faq-row + .steps-faq-row { margin-top:96px; }
+/* Each heading sticks within its OWN row, releasing at the row boundary */
+.steps-faq-row .steps-faq-head { grid-column:1; position:sticky; top:120px; align-self:start; }
+.steps-faq-row .steps-faq-content { grid-column:3; }
+
+/* ONE shared image: a single sticky element in the centre column, pinned across
+   BOTH sections. Its sticky containing block is the wrapper, whose bottom ends at
+   the FAQ's "Show more" area — so the image releases there and never scrolls past
+   it into the next (dark) section. */
+.steps-faq-media {
+  position:absolute; top:0; left:0; right:0; height:100%;   /* spans the wrapper */
+  display:flex; justify-content:center;
+  pointer-events:none; z-index:1;
+}
+.steps-faq-media .steps-model {
+  position:sticky; top:120px; align-self:start;
+  width:auto; max-width:416px; margin:0;   /* 20% smaller than the original 520px */
+}
+
+@media (max-width:900px) {
+  .steps-faq-row { grid-template-columns:1fr; row-gap:24px; }
+  .steps-faq-row .steps-faq-head { grid-column:1; position:static; }
+  .steps-faq-row .steps-faq-content { grid-column:1; }
+  /* On narrow screens show the single image once, at the top, non-sticky */
+  .steps-faq-media { position:static; height:auto; margin-bottom:24px; }
+  .steps-faq-media .steps-model { position:static; max-width:300px; margin:0 auto; }
+}
 
 /* Branches */
 .branch { background:#fff; color:var(--ink); border:1px solid transparent; border-radius:var(--radius); padding:26px; box-shadow:var(--shadow-sm); }
@@ -483,13 +609,17 @@ body { padding-bottom: 96px; }
 .page-hero p { color:rgba(255,255,255,.92); margin-top:10px; }
 .breadcrumb { font-size:.84rem; letter-spacing:.08em; color:rgba(255,255,255,.85); margin-bottom:14px; }
 .breadcrumb a:hover { color:var(--butter); }
+/* Back-to-Home link on the left of a page hero (white on the coral banner) */
+.page-hero-back { color:#fff; margin:0 0 20px; float:left; }
+.page-hero-back:hover { color:var(--butter); }
+.page-hero .breadcrumb, .page-hero h1, .page-hero p { clear:both; }
 
 .refer-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
 
 /* CTA band — rich coral-red */
-.cta-band { background:var(--red); color:#fff; text-align:center; }
-.cta-band h2 { color:#fff; }
-.cta-band p { color:rgba(255,255,255,.92); margin:14px auto 26px; max-width:560px; }
+.cta-band { background:#fff; color:var(--ink); text-align:center; }
+.cta-band h2 { color:var(--red); }
+.cta-band p { color:var(--grey); margin:14px auto 26px; max-width:560px; }
 .cta-band .hero-btns { justify-content:center; }
 
 /* Footer — charcoal with coral accents */

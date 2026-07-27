@@ -32,7 +32,7 @@ function UnlockIcon() {
 }
 
 const ACTIONS = [
-  { icon: <RateIcon />, label: "Live Gold Rate", href: "#live-rate", external: false },
+  { icon: <RateIcon />, label: "Live Gold Rate", href: "#sell-gold", external: false },
   {
     icon: <CoinsIcon />,
     label: "Sell Gold & Silver",

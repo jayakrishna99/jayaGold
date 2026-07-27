@@ -22,7 +22,6 @@ const SLIDES: Slide[] = [
 const STATS: [string, string][] = [
   ["50k+", "Happy Customers"],
   ["6", "Branches & Growing"],
-  ["₹500Cr+", "Gold Transacted"],
   ["4.9★", "Average Rating"],
 ];
 

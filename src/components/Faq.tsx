@@ -3,11 +3,23 @@ import { useState } from "react";
 
 export type QA = { q: string; a: string; points?: string[] };
 
-export default function Faq({ items }: { items: QA[] }) {
+export default function Faq({
+  items,
+  initialCount,
+}: {
+  items: QA[];
+  /** When set, only the first N questions show until "Show more" is clicked. */
+  initialCount?: number;
+}) {
   const [open, setOpen] = useState<number | null>(0);
+  const [expanded, setExpanded] = useState(false);
+
+  const collapsible = initialCount != null && items.length > initialCount;
+  const visible = collapsible && !expanded ? items.slice(0, initialCount) : items;
+
   return (
     <>
-      {items.map((item, i) => (
+      {visible.map((item, i) => (
         <div className={`faq-item${open === i ? " open" : ""}`} key={i}>
           <button
             className="faq-q"
@@ -27,6 +39,18 @@ export default function Faq({ items }: { items: QA[] }) {
           </div>
         </div>
       ))}
+      {collapsible && (
+        <button
+          className="faq-showmore"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+        >
+          {expanded ? "Show less" : "Show more"}
+          <span className="faq-showmore-ic" aria-hidden="true">
+            {expanded ? "−" : "+"}
+          </span>
+        </button>
+      )}
     </>
   );
 }

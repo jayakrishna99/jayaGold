@@ -20,7 +20,7 @@ export default function Header() {
           <span className="brand-sub">Gold Buyers</span>
         </a>
         <div className="nav-cta">
-          <span className="nav-state">Karnataka</span>
+          <span className="nav-state">Karnataka &amp; Keralam</span>
           <a className="btn btn-primary" href={`tel:${CONFIG.phone}`}>
             Call Now
           </a>

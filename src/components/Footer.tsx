@@ -27,7 +27,8 @@ export default function Footer() {
           <div>
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#live-rate">Live Gold Rate</a></li>
+              <li><a href="#top">Home</a></li>
+              <li><a href="#sell-gold">Live Gold Rate</a></li>
               <li><a href="#why">Why Jaya</a></li>
             </ul>
           </div>
@@ -42,7 +43,7 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <ul>
-              <li>📍 Opposite Joy Alukkas, 4th Block, Jayanagar, Bengaluru, Karnataka 560011</li>
+              <li>📍 Address: opposite Joy alukkas, 4th Block, Jayanagar, Bengaluru, Karnataka 560011</li>
               <li>📞 <a href="tel:+919108959886">+91 91089 59886</a></li>
               <li>✉️ <a href="mailto:info@jayagoldbuyers.com">info@jayagoldbuyers.com</a></li>
               <li>
