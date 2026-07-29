@@ -170,7 +170,7 @@ export default function Home() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="gold-promo-bg"
-          src="/img/gold-rate-banner-2.png"
+          src="/img/images/1600x900.png"
           alt="Check the live gold and silver rate on the Jaya Gold Buyers app"
         />
         <div className="container gold-promo-wrap">
@@ -211,7 +211,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="steps-model"
-              src="/img/steps-model-2.png"
+              src="/img/images/Model4.png"
               alt="Sell or release gold in easy steps at Jaya Gold Buyers"
             />
           </div>
@@ -282,7 +282,7 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="why-media"
-            src="/img/why-us.png"
+            src="/img/images/Model2.png"
             alt="Jaya Gold Buyers customer checking live gold rates on the app"
           />
           <div className="why-grid">

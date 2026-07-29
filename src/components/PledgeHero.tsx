@@ -68,7 +68,7 @@ export default function PledgeHero() {
         {/* Model */}
         <div className="pledge-model" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/img/steps-model-2.png" alt="" />
+          <img src="/img/images/Model6.png" alt="" />
         </div>
 
         {/* Tagline + CTAs */}

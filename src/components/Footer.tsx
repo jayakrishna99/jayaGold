@@ -9,10 +9,8 @@ export default function Footer() {
         <div className="cols">
           <div>
             <div className="logo-f">
-              <span className="brand" aria-label="Jaya Gold Buyers">
-                <span className="brand-word">JAYA</span>
-                <span className="brand-sub">Gold Buyers</span>
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="brand-logo" src="/img/logo-footer.png" alt="Jaya Gold Buyers" />
             </div>
             <p>
               Jaya Gold Buyers is Bengaluru&apos;s trusted destination for

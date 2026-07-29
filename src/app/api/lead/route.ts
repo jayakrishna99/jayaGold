@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 
 /**
- * Lead / complaint handler — the Node.js equivalent of White Gold's
- * sell-gold-lead-handler.php. Receives form submissions server-side.
+ * Lead / complaint handler. Receives form submissions server-side.
  * In production, persist to a DB / CRM or forward to email/WhatsApp Business API.
  */
 export async function POST(req: Request) {

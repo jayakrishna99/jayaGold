@@ -12,6 +12,7 @@ export default function FileComplaint() {
   return (
     <>
       <PageHero
+        back
         crumb="File a Complaint"
         title="File a Complaint"
         sub="Your feedback helps us serve you better. Tell us what went wrong and we'll resolve it quickly."

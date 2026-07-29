@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   title: "Jaya Gold Buyers | Sell Gold for Cash in Bangalore | Best Gold Buyers",
   description:
     "Jaya Gold Buyers — trusted gold buyers in Bangalore. We buy old gold & silver jewellery at the best live rates with instant cash. Strength You Can Trust!",
+  icons: {
+    icon: "/img/favicon.png",
+    shortcut: "/img/favicon.png",
+    apple: "/img/favicon.png",
+  },
   openGraph: {
     title: "Sell Gold for Cash in Bangalore | Jaya Gold Buyers",
     description:

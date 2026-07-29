@@ -62,6 +62,22 @@
   font-display: swap;
 }
 
+/* Bodoni Moda — serif used for paragraph body text only (headings keep Poppins) */
+@font-face {
+  font-family: "Bodoni Moda";
+  src: url("/fonts/BodoniModa-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Bodoni Moda";
+  src: url("/fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf") format("truetype");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -99,6 +115,9 @@ h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); }
 h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
 h4 { font-family: var(--font); font-weight: 600; }
 
+/* Paragraph body text uses Bodoni Moda; headings stay on Poppins */
+p { font-family: "Bodoni Moda", Georgia, "Times New Roman", serif; }
+
 .eyebrow { display:inline-block; color:var(--red); font-weight:500; letter-spacing:.24em; text-transform:uppercase; font-size:.76rem; margin-bottom:14px; }
 .lead { color: var(--grey); font-size: 1.05rem; max-width: 640px; letter-spacing: .01em; }
 .section-head { text-align:center; max-width:760px; margin:0 auto 48px; }
@@ -132,6 +151,9 @@ h4 { font-family: var(--font); font-weight: 600; }
 
 /* Brand logotype — serif "JAYA — GOLD BUYERS —" like the PDF */
 .brand { display:inline-flex; flex-direction:column; align-items:center; line-height:1; }
+.brand-logo { height:57px; width:auto; display:block; }
+.footer .brand-logo { height:64px; }
+@media (max-width:600px){ .brand-logo { height:48px; } }
 .brand-word { font-family:var(--serif); font-size:1.9rem; letter-spacing:.32em; margin-right:-.32em; color:var(--red); }
 .brand-sub { font-family:var(--font); font-size:.56rem; letter-spacing:.42em; margin-right:-.42em; text-transform:uppercase; color:var(--red); margin-top:6px; display:flex; align-items:center; gap:8px; }
 .brand-sub::before, .brand-sub::after { content:""; width:16px; height:1px; background:currentColor; opacity:.7; }
@@ -173,7 +195,9 @@ h4 { font-family: var(--font); font-weight: 600; }
 @keyframes earFlap { from { transform:rotate(-4deg); } to { transform:rotate(5deg); } }
 @keyframes tailSwing { from { transform:rotate(-8deg); } to { transform:rotate(8deg); } }
 @keyframes groundMove { to { stroke-dashoffset:-52; } }
-.loader-brand { display:flex; flex-direction:column; align-items:center; line-height:1; margin-top:18px; }
+.loader-brand { display:flex; flex-direction:column; align-items:center; line-height:1; margin-top:22px; }
+.loader-logo { height:64px; width:auto; display:block; }
+@media (max-width:600px){ .loader-logo { height:52px; } }
 .loader-dots { display:flex; gap:7px; justify-content:center; margin-top:18px; }
 .loader-dots span { width:8px; height:8px; border-radius:50%; background:var(--coral); animation:dotBounce 1s ease-in-out infinite; }
 .loader-dots span:nth-child(2) { animation-delay:.15s; }
@@ -189,7 +213,8 @@ h4 { font-family: var(--font); font-weight: 600; }
 .nav { display:flex; align-items:center; justify-content:space-between; padding:20px 0; transition:padding .35s ease; }
 .header.scrolled .nav { padding:11px 0; }
 .nav-cta { display:flex; align-items:center; gap:22px; }
-.nav-state { font-size:.86rem; letter-spacing:.14em; color:var(--coral); }
+.nav-state { font-size:.86rem; letter-spacing:.14em; color:var(--coral); cursor:pointer; transition:color .15s; }
+.nav-state:hover { color:var(--red); }
 .nav-cta .btn { padding:10px 22px; font-size:.86rem; }
 
 /* Sticky action bar (pinned to bottom) — slate bar with grey pills */

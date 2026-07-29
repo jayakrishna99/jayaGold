@@ -13,8 +13,7 @@ type Props = {
 
 /**
  * Generic WhatsApp lead form. Collects name/phone/city/item/weight and opens
- * WhatsApp with a prefilled message — the same behaviour as White Gold's
- * js_whatsapp_form handler.
+ * WhatsApp with a prefilled message.
  */
 export default function WhatsAppForm({
   title,

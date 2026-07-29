@@ -90,8 +90,8 @@ export default function Loader() {
           </g>
         </svg>
         <div className="loader-brand">
-          <span className="brand-word">JAYA</span>
-          <span className="brand-sub">Gold Buyers</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="loader-logo" src="/img/logo-footer.png" alt="Jaya Gold Buyers" />
         </div>
         <div className="loader-dots">
           <span />

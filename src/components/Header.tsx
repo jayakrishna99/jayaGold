@@ -16,11 +16,11 @@ export default function Header() {
     <header className={`header${scrolled ? " scrolled" : ""}`}>
       <div className="container nav">
         <a className="brand" href="/#top" aria-label="Jaya Gold Buyers">
-          <span className="brand-word">JAYA</span>
-          <span className="brand-sub">Gold Buyers</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="brand-logo" src="/img/images/Logo-01.png" alt="Jaya Gold Buyers" />
         </a>
         <div className="nav-cta">
-          <span className="nav-state">Karnataka &amp; Keralam</span>
+          <a className="nav-state" href="/#contact">Karnataka | Keralam</a>
           <a className="btn btn-primary" href={`tel:${CONFIG.phone}`}>
             Call Now
           </a>
