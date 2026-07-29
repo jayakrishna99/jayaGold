@@ -220,7 +220,7 @@ export default function Home() {
           <div className="steps-faq-row">
             <div className="steps-head steps-faq-head">
               <h2>
-                <span className="accent">Need to Release or Sell Gold in Bengaluru?</span>
+                <span className="accent accent-serif">Need to Release or Sell Gold in Bengaluru?</span>
                 <br />
                 In 6 Easy Steps.
               </h2>
@@ -234,7 +234,7 @@ export default function Home() {
           <div className="steps-faq-row" id="faqs">
             <div className="steps-head steps-faq-head">
               <h2>
-                <span className="accent">Common Questions</span>
+                <span className="accent accent-serif">Common Questions</span>
                 <br />
                 Frequently Asked Questions
               </h2>
@@ -305,7 +305,7 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <span className="eyebrow">Get In Touch</span>
-            <h2>We&apos;re Here to Help</h2>
+            <h2 className="accent-serif">We&apos;re Here to Help</h2>
             <p className="lead">
               Have questions about selling gold, releasing pledged
               jewellery, or checking today&apos;s gold value? Our team is

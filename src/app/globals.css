@@ -62,7 +62,7 @@
   font-display: swap;
 }
 
-/* Bodoni Moda — serif used for paragraph body text only (headings keep Poppins) */
+/* Bodoni Moda — used only for the hero banner headlines */
 @font-face {
   font-family: "Bodoni Moda";
   src: url("/fonts/BodoniModa-VariableFont_opsz,wght.ttf") format("truetype");
@@ -114,9 +114,6 @@ h1,h2,h3,h4 { line-height: 1.22; font-weight: 500; font-family: var(--serif); le
 h1 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); }
 h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); }
 h4 { font-family: var(--font); font-weight: 600; }
-
-/* Paragraph body text uses Bodoni Moda; headings stay on Poppins */
-p { font-family: "Bodoni Moda", Georgia, "Times New Roman", serif; }
 
 .eyebrow { display:inline-block; color:var(--red); font-weight:500; letter-spacing:.24em; text-transform:uppercase; font-size:.76rem; margin-bottom:14px; }
 .lead { color: var(--grey); font-size: 1.05rem; max-width: 640px; letter-spacing: .01em; }
@@ -266,7 +263,7 @@ body { padding-bottom: 96px; }
 .hero-slide.active .hero-banner { animation: bannerIn 1.2s ease both; }
 @keyframes bannerIn { from { opacity:0; transform:translateX(-50%) scale(1.04); } to { opacity:1; transform:translateX(-50%) scale(1); } }
 .hero-banner-copy { position:absolute; left:42%; right:3%; top:32%; text-align:center; color:#fff; padding:28px 30px; border-radius:20px; background:linear-gradient(135deg, rgba(70,12,12,0) 0%, rgba(70,12,12,.32) 55%, rgba(55,8,8,.46) 100%); }
-.hero-banner-copy h2 { margin:0; font-size:clamp(1.5rem, 2.75vw, 2.6rem); line-height:1.35; font-weight:600; letter-spacing:.01em; text-shadow:0 2px 18px rgba(120,20,20,.4); }
+.hero-banner-copy h2 { margin:0; font-family:"Bodoni Moda", Georgia, serif; font-size:clamp(1.5rem, 2.75vw, 2.6rem); line-height:1.35; font-weight:600; letter-spacing:.01em; text-shadow:0 2px 18px rgba(120,20,20,.4); }
 .hero-banner-copy b { color:var(--butter); font-weight:700; }
 .hero-banner-sub { margin:14px 0 0; font-size:1.05rem; letter-spacing:.02em; color:rgba(255,255,255,.95); line-height:1.6; text-shadow:0 2px 14px rgba(120,20,20,.4); }
 .hero-slide.active .hero-banner-copy { animation: heroRise 1s ease .35s both; }
@@ -284,7 +281,7 @@ body { padding-bottom: 96px; }
 .gold-promo-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
 .gold-promo-wrap { position:relative; display:flex; align-items:center; min-height:clamp(420px, 44vw, 620px); padding:96px 0; }
 .gold-promo-copy { max-width:440px; z-index:2; }
-.gold-promo-copy h2 { color:var(--red); font-size:clamp(2rem, 4vw, 3rem); line-height:1.18; }
+.gold-promo-copy h2 { font-family:"Bodoni Moda", Georgia, serif; color:var(--red); font-size:clamp(2rem, 4vw, 3rem); line-height:1.18; }
 .gold-promo-sub { margin-top:18px; color:var(--ink); font-size:1.15rem; font-weight:500; line-height:1.55; }
 .gold-promo-btns { display:flex; gap:16px; flex-wrap:wrap; margin-top:28px; }
 .gold-promo-btns .btn:first-child { background:var(--red); color:#fff; border-color:var(--red); }
@@ -344,7 +341,7 @@ body { padding-bottom: 96px; }
 
 .pledge-copy { text-align:right; }
 .pledge-tagline {
-  font-family:var(--serif); color:var(--coral);
+  font-family:"Bodoni Moda", Georgia, serif; color:var(--coral);
   font-size:clamp(1.5rem,2.4vw,2.1rem); line-height:1.18; font-weight:400;
 }
 .pledge-tagline b { color:var(--red); font-weight:700; }
@@ -433,7 +430,7 @@ body { padding-bottom: 96px; }
 
 /* Testimonials — Real Customers, Real Experiences */
 .reviews-grid { align-items: center; gap: 56px; }
-.reviews-title { color: var(--red); font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 30px; }
+.reviews-title { font-family:"Bodoni Moda", Georgia, serif; color: var(--red); font-size: clamp(2rem, 3.6vw, 2.9rem); margin-bottom: 30px; }
 .reviews-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 480px; }
 .stat-box { background: #fff; border: 1px solid rgba(233,226,210,.6); border-radius: var(--radius); padding: 14px 10px; box-shadow: var(--shadow-sm); text-align: center; }
 .stat-box b { display: block; font-family: var(--serif); font-size: 1.2rem; color: var(--red); white-space: nowrap; }
@@ -527,6 +524,7 @@ body { padding-bottom: 96px; }
 .steps-head { position:sticky; top:130px; }
 .steps-head h2 { color:var(--ink); line-height:1.25; }
 .steps-head h2 .accent { color:var(--red); }
+.accent-serif { font-family:"Bodoni Moda", Georgia, serif; }
 .sa-kicker { display:flex; justify-content:space-between; align-items:center; color:var(--grey); letter-spacing:.22em; font-size:.72rem; text-transform:uppercase; margin:28px 6px 12px; }
 .steps-acc > div:first-child .sa-kicker { margin-top:0; }
 .sa-item { background:var(--coral); border:0; border-radius:12px; margin-bottom:14px; overflow:hidden; box-shadow:0 8px 22px rgba(255,138,138,.35); transition:background .2s, box-shadow .2s, transform .2s; }
@@ -548,7 +546,7 @@ body { padding-bottom: 96px; }
 
 /* Why Jaya Gold Buyers — heading+CTA, model, card grid */
 .why-wrap { display:grid; grid-template-columns:.85fr 1fr 1.3fr; align-items:center; gap:36px; }
-.why-heading { font-size:clamp(2.1rem, 3.6vw, 3.2rem); line-height:1.15; color:#fff; margin:0 0 40px; }
+.why-heading { font-family:"Bodoni Moda", Georgia, serif; font-size:clamp(2.1rem, 3.6vw, 3.2rem); line-height:1.15; color:#fff; margin:0 0 40px; }
 .why-cta { display:flex; flex-direction:column; align-items:flex-start; gap:14px; }
 .why-cta-label { font-size:1.05rem; font-weight:500; color:rgba(240,237,230,.85); }
 .why-media { width:100%; max-width:380px; height:auto; justify-self:center; align-self:end; filter:drop-shadow(0 20px 40px rgba(0,0,0,.4)); }
@@ -643,7 +641,7 @@ body { padding-bottom: 96px; }
 
 /* CTA band — rich coral-red */
 .cta-band { background:#fff; color:var(--ink); text-align:center; }
-.cta-band h2 { color:var(--red); }
+.cta-band h2 { font-family:"Bodoni Moda", Georgia, serif; color:var(--red); }
 .cta-band p { color:var(--grey); margin:14px auto 26px; max-width:560px; }
 .cta-band .hero-btns { justify-content:center; }
 

@@ -14,8 +14,7 @@ type Slide = {
 const SLIDES: Slide[] = [
   { av: "R", name: "Ramesh K.", city: "Bangalore", quote: "Got ₹8,000 more than the shop next door!", caption: "SOLD IN 15 MINUTES!", img: "/img/banner3.png", pos: "22% 12%" },
   { av: "S", name: "Sowmya P.", city: "Chennai", quote: "They released my pledged gold the same day.", caption: "PLEDGE RELEASED FAST!", img: "/img/banner1.png", pos: "18% 22%" },
-  { av: "A", name: "Anil M.", city: "Kochi", quote: "Doorstep pickup, fair rate, zero hassle.", caption: "SOLD FROM HOME!", img: "/img/banner2.png", pos: "20% 15%" },
-  { av: "P", name: "Priya R.", city: "Hyderabad", quote: "Transparent valuation, instant payment.", caption: "FAIR VALUE, INSTANTLY!", img: "/img/banner4.png", pos: "20% 15%" },
+  { av: "A", name: "Anil M.", city: "Kochi", quote: "Doorstep pickup, fair rate, zero hassle.", caption: "SOLD FROM HOME!", img: "/img/images/Model5.png", pos: "20% 15%" },
   { av: "K", name: "Kavya S.", city: "Vijayawada", quote: "Live rate tracking made it easy to decide.", caption: "BEST RATE IN TOWN!", img: "/img/gold-rate-banner-2.png", pos: "78% 30%" },
 ];
 
