@@ -137,7 +137,8 @@ h4 { font-family: var(--font); font-weight: 600; }
 /* Brand logotype — serif "JAYA — GOLD BUYERS —" like the PDF */
 .brand { display:inline-flex; flex-direction:column; align-items:center; line-height:1; }
 .brand-logo { height:57px; width:auto; display:block; }
-.footer .brand-logo { height:64px; }
+.header .brand-logo { transform:scale(2.0); transform-origin:left center; }
+.footer .brand-logo { height:100px; }
 @media (max-width:600px){ .brand-logo { height:48px; } }
 .brand-word { font-family:var(--serif); font-size:1.9rem; letter-spacing:.32em; margin-right:-.32em; color:var(--red); }
 .brand-sub { font-family:var(--font); font-size:.56rem; letter-spacing:.42em; margin-right:-.42em; text-transform:uppercase; color:var(--red); margin-top:6px; display:flex; align-items:center; gap:8px; }
@@ -168,6 +169,8 @@ h4 { font-family: var(--font); font-weight: 600; }
 
 /* Animated JAYA text logo as the loading indicator */
 .loader-brand { display:flex; flex-direction:column; align-items:center; line-height:1; }
+.loader-logo { height:120px; width:auto; display:block; }
+@media (max-width:600px){ .loader-logo { height:88px; } }
 .loader-brand-anim { animation:loaderBrandPulse 1.6s ease-in-out infinite; }
 .loader-brand-anim .brand-word { font-size:3.4rem; letter-spacing:.34em; margin-right:-.34em; color:var(--red); }
 .loader-brand-anim .brand-sub { font-size:.8rem; letter-spacing:.44em; margin-right:-.44em; margin-top:12px; color:var(--red); }

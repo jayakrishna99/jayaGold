@@ -12,35 +12,28 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    img: "/img/banner1.png",
+    img: "/img/images/Banner1.png",
     alt: "Sell your gold and silver jewellery for instant cash at Jaya Gold Buyers, Bengaluru",
     theme: "coral",
     full: true,
-    headline: ["Bengaluru's Trusted Gold & Silver Destination!"],
-    sub: "Release, Buy & sell. Fair Value. Transparent Service.",
   },
   {
-    img: "/img/banner2.png",
+    img: "/img/images/Banner2.png",
     alt: "Looking for gold buyers in Bengaluru? Jaya Gold Buyers offers fair valuation",
     theme: "coral",
     full: true,
-    headline: ["Looking for Gold Buyers in Bengaluru?"],
   },
   {
-    img: "/img/banner3.png",
+    img: "/img/images/Banner3.png",
     alt: "Your gold deserves more than just a price at Jaya Gold Buyers",
     theme: "coral",
     full: true,
-    headline: ["Your Gold Deserves More Than Just a Price."],
-    sub: "Release, Buy & Sell with Fair Valuation & Trusted Service.",
   },
   {
-    img: "/img/banner4.png",
+    img: "/img/images/Banner4.png",
     alt: "Fair value and trusted service every time at Jaya Gold Buyers",
     theme: "coral",
     full: true,
-    headline: ["Fair Value. Trusted Service. Every Time."],
-    sub: "Release, Buy & Sell Gold & Silver with Confidence.",
   },
 ];
 
@@ -76,17 +69,19 @@ export default function HeroCarousel() {
             <span className="hero-banner-bg" aria-hidden="true" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="hero-banner" src={s.img} alt={s.alt} />
-            <div className="hero-banner-copy">
-              <h2>
-                {s.headline.map((line, j) => (
-                  <span key={j}>
-                    <b>{line}</b>
-                    {j < s.headline.length - 1 && <br />}
-                  </span>
-                ))}
-              </h2>
-              {s.sub && <p className="hero-banner-sub">{s.sub}</p>}
-            </div>
+            {s.headline && (
+              <div className="hero-banner-copy">
+                <h2>
+                  {s.headline.map((line, j) => (
+                    <span key={j}>
+                      <b>{line}</b>
+                      {j < s.headline!.length - 1 && <br />}
+                    </span>
+                  ))}
+                </h2>
+                {s.sub && <p className="hero-banner-sub">{s.sub}</p>}
+              </div>
+            )}
           </div>
         ))}
         <div className="hero-dots">

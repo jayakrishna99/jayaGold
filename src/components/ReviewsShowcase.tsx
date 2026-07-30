@@ -16,6 +16,7 @@ const SLIDES: Slide[] = [
   { av: "S", name: "Sowmya P.", city: "Chennai", quote: "They released my pledged gold the same day.", caption: "PLEDGE RELEASED FAST!", img: "/img/images/Ratings-02.png", pos: "18% 22%" },
   { av: "A", name: "Anil M.", city: "Kochi", quote: "Doorstep pickup, fair rate, zero hassle.", caption: "SOLD FROM HOME!", img: "/img/images/Ratings-03.png", pos: "20% 15%" },
   { av: "K", name: "Kavya S.", city: "Vijayawada", quote: "Live rate tracking made it easy to decide.", caption: "BEST RATE IN TOWN!", img: "/img/images/Ratings-04.png", pos: "78% 30%" },
+  { av: "P", name: "Priya N.", city: "Bangalore", quote: "Transparent valuation and instant payment.", caption: "INSTANT PAYMENT!", img: "/img/images/Ratings-05.png", pos: "20% 15%" },
 ];
 
 const STATS: [string, string][] = [

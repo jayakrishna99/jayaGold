@@ -34,8 +34,8 @@ export default function Loader() {
     <div className={`loader${phase === "fade" ? " fade" : ""}`} aria-hidden="true">
       <div className="loader-inner">
         <div className="loader-brand loader-brand-anim" role="img" aria-label="Jaya Gold Buyers — Loading">
-          <span className="brand-word">JAYA</span>
-          <span className="brand-sub">Gold Buyers</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="loader-logo" src="/img/images/Logo-02.png" alt="Jaya Gold Buyers" />
         </div>
         <div className="loader-dots">
           <span />
