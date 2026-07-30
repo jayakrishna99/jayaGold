@@ -12,10 +12,10 @@ type Slide = {
 };
 
 const SLIDES: Slide[] = [
-  { av: "R", name: "Ramesh K.", city: "Bangalore", quote: "Got ₹8,000 more than the shop next door!", caption: "SOLD IN 15 MINUTES!", img: "/img/banner3.png", pos: "22% 12%" },
-  { av: "S", name: "Sowmya P.", city: "Chennai", quote: "They released my pledged gold the same day.", caption: "PLEDGE RELEASED FAST!", img: "/img/banner1.png", pos: "18% 22%" },
-  { av: "A", name: "Anil M.", city: "Kochi", quote: "Doorstep pickup, fair rate, zero hassle.", caption: "SOLD FROM HOME!", img: "/img/images/Model5.png", pos: "20% 15%" },
-  { av: "K", name: "Kavya S.", city: "Vijayawada", quote: "Live rate tracking made it easy to decide.", caption: "BEST RATE IN TOWN!", img: "/img/gold-rate-banner-2.png", pos: "78% 30%" },
+  { av: "R", name: "Ramesh K.", city: "Bangalore", quote: "Got ₹8,000 more than the shop next door!", caption: "SOLD IN 15 MINUTES!", img: "/img/images/Ratings-01.png", pos: "22% 12%" },
+  { av: "S", name: "Sowmya P.", city: "Chennai", quote: "They released my pledged gold the same day.", caption: "PLEDGE RELEASED FAST!", img: "/img/images/Ratings-02.png", pos: "18% 22%" },
+  { av: "A", name: "Anil M.", city: "Kochi", quote: "Doorstep pickup, fair rate, zero hassle.", caption: "SOLD FROM HOME!", img: "/img/images/Ratings-03.png", pos: "20% 15%" },
+  { av: "K", name: "Kavya S.", city: "Vijayawada", quote: "Live rate tracking made it easy to decide.", caption: "BEST RATE IN TOWN!", img: "/img/images/Ratings-04.png", pos: "78% 30%" },
 ];
 
 const STATS: [string, string][] = [
@@ -139,18 +139,7 @@ export default function ReviewsShowcase() {
                 >
                   <img src={s.img} alt={`${s.name}, ${s.city}`} style={{ objectPosition: s.pos }} />
                   {isMain ? (
-                    <>
-                      <div className="story-caption">{s.caption}</div>
-                      <div className="story-footer">
-                        <div className="story-avatar">{s.av}</div>
-                        <div className="story-footer-text">
-                          <b>{s.name}</b>
-                          <span>&quot;{s.quote}&quot;</span>
-                        </div>
-                        <span className="story-arrow" aria-hidden="true">→</span>
-                      </div>
-                      <div className="story-progress" />
-                    </>
+                    <div className="story-progress" />
                   ) : (
                     <div className="story-shade" />
                   )}

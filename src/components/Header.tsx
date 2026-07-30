@@ -17,7 +17,7 @@ export default function Header() {
       <div className="container nav">
         <a className="brand" href="/#top" aria-label="Jaya Gold Buyers">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="brand-logo" src="/img/images/Logo-01.png" alt="Jaya Gold Buyers" />
+          <img className="brand-logo" src="/img/images/Logo-02.png" alt="Jaya Gold Buyers" />
         </a>
         <div className="nav-cta">
           <a className="nav-state" href="/#contact">Karnataka | Keralam</a>

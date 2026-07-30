@@ -3,7 +3,7 @@ export const CONFIG = {
   phone: "+919108959886",
   phoneDisplay: "+91 91089 59886",
   whatsapp: "919108959886", // wa.me format, no "+"
-  email: "care@jayagoldbuyers.in",
+  email: "care@jayagoldbuyers.com",
   address: "Opposite Joy Alukkas, 4th Block, Jayanagar, Bengaluru, Karnataka 560011",
   hours: "Monday – Saturday: 11 AM – 7:00 PM · Friday: Closed (Update if applicable.)",
   cities: ["Bangalore", "Chennai", "Kochi", "Hyderabad", "Vijayawada"],
