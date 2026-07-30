@@ -6,7 +6,7 @@ type Slide = {
   alt: string;
   theme: "coral" | "dark";
   full?: boolean; // full-bleed banner with its own artwork/text
-  headline: string[]; // bold headline lines
+  headline?: string[]; // bold headline lines
   sub?: string; // supporting line under the headline
 };
 
