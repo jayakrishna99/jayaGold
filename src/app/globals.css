@@ -30,37 +30,12 @@
   --shadow-md:   0 14px 38px rgba(38,35,35,.14);
   --radius:      10px;
   --max:         1180px;
-  --font: "aktiv-grotesk", "Aktiv Grotesk", "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --serif: "aktiv-grotesk", "Aktiv Grotesk", "Poppins", "Segoe UI", system-ui, sans-serif;
+  --font: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --serif: "Poppins", "Segoe UI", system-ui, sans-serif;
 }
 
-/* Aktiv Grotesk is a commercial font (Dalton Maag). Two ways to activate:
-   1. Adobe Fonts: add your kit <link> in src/app/layout.tsx — the family
-      name "aktiv-grotesk" is already wired here.
-   2. Self-hosted: drop licensed woff2 files into public/fonts/ and the
-      faces below pick them up automatically.
-   Until then the stack falls back to Poppins. */
-@font-face {
-  font-family: "Aktiv Grotesk";
-  src: url("/fonts/AktivGrotesk-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Aktiv Grotesk";
-  src: url("/fonts/AktivGrotesk-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Aktiv Grotesk";
-  src: url("/fonts/AktivGrotesk-Bold.woff2") format("woff2");
-  font-weight: 600 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* Body/UI type is Poppins, loaded from Google Fonts via <link> in
+   src/app/layout.tsx. */
 
 /* Bodoni Moda is loaded from Google Fonts via <link> in src/app/layout.tsx.
    It is applied only to selected headings/taglines (hero, gold-promo,
