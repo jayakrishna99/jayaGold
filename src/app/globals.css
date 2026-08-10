@@ -138,7 +138,7 @@ h4 { font-family: var(--font); font-weight: 600; }
 @keyframes riseIn { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
 
 /* Loader — walking elephant splash, fades out when the app is ready */
-.loader { position:fixed; inset:0; z-index:200; background:var(--cream); display:grid; place-items:center; transition:opacity .7s ease; }
+.loader { position:fixed; inset:0; z-index:200; background:#000; display:grid; place-items:center; transition:opacity .7s ease; }
 .loader.fade { opacity:0; pointer-events:none; }
 .loader-inner { text-align:center; }
 
@@ -228,6 +228,7 @@ body { padding-bottom: 96px; }
 .hero-banner { position:absolute; top:0; left:50%; height:100%; width:100vw; max-width:none; transform:translateX(-50%); object-fit:contain; object-position:left bottom; }
 .hero-slide.active .hero-banner { animation: bannerIn 1.2s ease both; }
 @keyframes bannerIn { from { opacity:0; transform:translateX(-50%) scale(1.04); } to { opacity:1; transform:translateX(-50%) scale(1); } }
+@keyframes bannerInMobile { from { opacity:0; transform:scale(1.04); } to { opacity:1; transform:scale(1); } }
 .hero-banner-copy { position:absolute; left:50%; right:0%; top:32%; text-align:center; color:#fff; padding:20px 30px; border-radius:20px; background:linear-gradient(135deg, rgba(70,12,12,0) 0%, rgba(70,12,12,.32) 55%, rgba(55,8,8,.46) 100%); }
 .hero-banner-copy h2 { margin:0; font-family:"Bodoni Moda", Georgia, serif; font-size:clamp(1.5rem, 2.75vw, 2.6rem); line-height:1.35; font-weight:600; letter-spacing:.01em; text-shadow:0 2px 18px rgba(120,20,20,.4); }
 .hero-banner-copy b { color:#fff; font-weight:700; }
@@ -649,13 +650,17 @@ body { padding-bottom: 96px; }
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-carousel { height:min(160vw, 640px); }
-  .hero-banner { object-fit:cover; object-position:22% bottom; }
+  .hero-carousel { height:auto; aspect-ratio:2000 / 917; }
+  .hero-banner { position:relative; height:auto; width:100%; top:auto; left:auto; transform:none; object-fit:contain; object-position:center; }
+  .hero-slide.active .hero-banner { animation:bannerInMobile 1.2s ease both; }
   .hero-banner-copy { left:0; right:0; top:auto; bottom:0; border-radius:0; padding:18px 20px 22px; background:linear-gradient(180deg, rgba(60,10,10,0) 0%, rgba(75,12,12,.72) 45%, rgba(60,10,10,.92) 100%); }
   .hero-banner-copy h2 { font-size:clamp(1.15rem, 4.8vw, 1.45rem); }
   .hero-banner-sub { font-size:.85rem; margin-top:8px; }
   .hero-arrow { font-size:2rem; padding:6px 8px; }
   .hero-dots { right:50%; transform:translateX(50%); bottom:14px; }
+  .trust-strip .container { flex-direction:column; align-items:flex-start; gap:12px; padding:16px 0; }
+  .trust-item { font-size:.8rem; gap:8px; }
+  .trust-item svg { width:16px; height:16px; }
   .gold-promo-bg { object-position:75% center; }
   .gold-promo-wrap { min-height:auto; padding:36px 0; background:linear-gradient(90deg, rgba(246,228,190,.97) 0%, rgba(246,228,190,.9) 55%, rgba(246,228,190,.15) 100%); }
   .gold-promo-copy { max-width:78%; }
