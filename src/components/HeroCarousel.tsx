@@ -66,7 +66,13 @@ export default function HeroCarousel() {
             key={s.img}
             aria-hidden={i !== active}
           >
-            <span className="hero-banner-bg" aria-hidden="true" />
+            <span
+              className="hero-banner-bg"
+              aria-hidden="true"
+              style={{
+                backgroundImage: `linear-gradient(180deg, rgba(239,98,89,.55) 0%, rgba(248,114,105,.45) 20%, rgba(251,121,111,.4) 40%, rgba(252,121,110,.4) 60%, rgba(252,126,116,.42) 80%, rgba(245,138,122,.5) 100%), url(${s.img})`,
+              }}
+            />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="hero-banner" src={s.img} alt={s.alt} />
             {s.headline && (

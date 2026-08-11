@@ -35,7 +35,7 @@ export default function Loader() {
       <div className="loader-inner">
         <div className="loader-brand" role="img" aria-label="Jaya Gold Buyers — Loading">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="loader-logo" src="/img/images/JayaNewLoader.gif" alt="Jaya Gold Buyers" />
+          <img className="loader-logo" src="/img/images/elephentwithoutbg.gif" alt="Jaya Gold Buyers" />
         </div>
       </div>
     </div>

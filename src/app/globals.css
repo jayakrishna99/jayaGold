@@ -138,14 +138,13 @@ h4 { font-family: var(--font); font-weight: 600; }
 @keyframes riseIn { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
 
 /* Loader — walking elephant splash, fades out when the app is ready */
-.loader { position:fixed; inset:0; z-index:200; background:#000; display:grid; place-items:center; transition:opacity .7s ease; }
+.loader { position:fixed; inset:0; z-index:200; background:#fff; display:grid; place-items:center; transition:opacity .7s ease; }
 .loader.fade { opacity:0; pointer-events:none; }
 .loader-inner { text-align:center; }
 
 /* Animated JAYA text logo as the loading indicator */
-.loader-brand { display:flex; flex-direction:column; align-items:center; line-height:1; }
-.loader-logo { height:120px; width:auto; display:block; }
-@media (max-width:600px){ .loader-logo { height:88px; } }
+.loader-brand { display:flex; flex-direction:column; align-items:center; justify-content:center; line-height:1; width:50vw; height:50vh; }
+.loader-logo { width:50vw; height:50vh; display:block; object-fit:contain; }
 .loader-brand-anim { animation:loaderBrandPulse 1.6s ease-in-out infinite; }
 .loader-brand-anim .brand-word { font-size:3.4rem; letter-spacing:.34em; margin-right:-.34em; color:var(--red); }
 .loader-brand-anim .brand-sub { font-size:.8rem; letter-spacing:.44em; margin-right:-.44em; margin-top:12px; color:var(--red); }
@@ -224,7 +223,7 @@ body { padding-bottom: 96px; }
 .hero-slide.active { opacity:1; pointer-events:auto; }
 @keyframes heroRise { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:none; } }
 .hero-slide.full { display:block; }
-.hero-banner-bg { position:absolute; top:0; left:50%; height:100%; width:100vw; transform:translateX(-50%); background:linear-gradient(180deg, #EF6259 0%, #F87269 20%, #FB796F 40%, #FC796E 60%, #FC7E74 80%, #F58A7A 100%); }
+.hero-banner-bg { position:absolute; top:0; left:50%; height:100%; width:100vw; transform:translateX(-50%) scale(1.15); background-color:#F87269; background-size:cover; background-position:center; filter:blur(30px) saturate(1.1); }
 .hero-banner { position:absolute; top:0; left:50%; height:100%; width:100vw; max-width:none; transform:translateX(-50%); object-fit:contain; object-position:left bottom; }
 .hero-slide.active .hero-banner { animation: bannerIn 1.2s ease both; }
 @keyframes bannerIn { from { opacity:0; transform:translateX(-50%) scale(1.04); } to { opacity:1; transform:translateX(-50%) scale(1); } }
@@ -651,16 +650,15 @@ body { padding-bottom: 96px; }
 /* Responsive */
 @media (max-width: 900px) {
   .hero-carousel { height:auto; aspect-ratio:2000 / 917; }
-  .hero-banner { position:relative; height:auto; width:100%; top:auto; left:auto; transform:none; object-fit:contain; object-position:center; }
+  .hero-slide.full { display:flex; align-items:center; justify-content:center; }
+  .hero-banner { position:relative; height:auto; width:100%; top:auto; left:auto; transform:none; object-fit:cover; object-position:center; }
   .hero-slide.active .hero-banner { animation:bannerInMobile 1.2s ease both; }
   .hero-banner-copy { left:0; right:0; top:auto; bottom:0; border-radius:0; padding:18px 20px 22px; background:linear-gradient(180deg, rgba(60,10,10,0) 0%, rgba(75,12,12,.72) 45%, rgba(60,10,10,.92) 100%); }
   .hero-banner-copy h2 { font-size:clamp(1.15rem, 4.8vw, 1.45rem); }
   .hero-banner-sub { font-size:.85rem; margin-top:8px; }
   .hero-arrow { font-size:2rem; padding:6px 8px; }
   .hero-dots { right:50%; transform:translateX(50%); bottom:14px; }
-  .trust-strip .container { flex-direction:column; align-items:flex-start; gap:12px; padding:16px 0; }
-  .trust-item { font-size:.8rem; gap:8px; }
-  .trust-item svg { width:16px; height:16px; }
+  .trust-strip { display:none; }
   .gold-promo-bg { object-position:75% center; }
   .gold-promo-wrap { min-height:auto; padding:36px 0; background:linear-gradient(90deg, rgba(246,228,190,.97) 0%, rgba(246,228,190,.9) 55%, rgba(246,228,190,.15) 100%); }
   .gold-promo-copy { max-width:78%; }
