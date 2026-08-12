@@ -20,6 +20,13 @@ export default function PledgeHero() {
     if (grams) msg += `Quantity (grams): ${grams}\n`;
     if (mobile) msg += `Mobile: ${mobile}\n`;
     window.open(waLink(msg), "_blank", "noopener");
+
+    fetch("/api/lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, phone: mobile, grams, ctype: "sell-gold" }),
+    }).catch(() => {});
+
     setDone(true);
     f.reset();
   }
